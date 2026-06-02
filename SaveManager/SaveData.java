@@ -1,3 +1,4 @@
+package SaveManager;
 public class SaveData {
 
     // Player stats
