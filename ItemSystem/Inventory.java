@@ -10,14 +10,24 @@ public class Inventory {
         this.inv = new ArrayList<>();
         this.size = size;
     }  
-    
-    //GettersSetters
+
+    //Getters
     public ArrayList<Item> getInv(){
         return this.inv;
     }
 
     public int size(){
         return this.size;
+    }
+
+    public boolean hasItem(Item i){
+        return this.inv.contains(i);
+    }
+
+    //Setters
+    public void setSize(int size){
+        //probably will go unused
+        this.size = size;
     }
 
 
@@ -34,10 +44,26 @@ public class Inventory {
     }
 
     public void add(Item item){
-        if(this.inv.size() >= this.size){
+        if(this.inv.size() < this.size){
             this.inv.add(item);
         }
+    }
 
-        
+    //DEBUGGING
+    public static void main(String[] args){
+        Inventory i = new Inventory(4);
+        Item it = new Item("Bread");
+        i.add(it);
+        i.add(it);
+        i.add(it);
+        i.add(it);
+        i.add(it);
+
+        System.out.println(i.getInv().toString());
+
+        i.discard(it);
+        i.consume(it);
+        System.out.println(i.getInv().toString());
+
     }
 }
