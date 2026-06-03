@@ -3,13 +3,14 @@ import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.io.IOException;
+import java.io.File;
 
 public class SaveSystem {
     private String saveDirectory;
     private String saveFilePath;
 
     public SaveSystem() {
-        this.saveDirectory = System.getProperty(saveDirectory);
+        this.saveDirectory = System.getProperty("user.home") + File.separator + "MyGameSaves";
         this.saveFilePath = 
         createSaveDirectory();
     }
