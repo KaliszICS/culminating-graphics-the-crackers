@@ -2,8 +2,6 @@ package SaveManager;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-//* "Progress successfully backed up!", "Game saved successfully!"
-//No save file detected or mismatch found. Starting fresh." */
 import java.io.IOException;
 
 public class SaveSystem {

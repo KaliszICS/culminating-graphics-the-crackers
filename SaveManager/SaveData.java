@@ -24,6 +24,5 @@ public class SaveData {
     }
 
     //Converts saveData
-    public String serialize() {
-    }
+    
 }
