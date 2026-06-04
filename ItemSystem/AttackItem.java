@@ -1,0 +1,25 @@
+package ItemSystem;
+
+public class AttackItem extends Item {
+
+    public AttackItem(String name){
+        super(name);
+    }
+    
+    public String Item(String name){
+        super.name = name;
+        return name;
+        //this.quantity = quantity;
+    }
+
+    public int Damage(int Damage){
+        this.Damage = Damage;
+        return Damage;
+    }
+
+    @Override
+    public String toString(){
+        return this.name;
+        return this.Damage;
+    }
+}

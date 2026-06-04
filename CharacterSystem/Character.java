@@ -20,8 +20,9 @@ public class Character {
         this.speed = speed;
         
     }
-    
+
     public void takeDamage(int amount) {
         this.currentHP = Math.max(0, currentHP - amount);
     }
+    
 }

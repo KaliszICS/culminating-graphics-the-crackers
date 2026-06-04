@@ -4,45 +4,10 @@ public class Maps {
         
     }
     
-    public void maps(String[][] grass, String[][] caves, String[][] underworld) {
-        grass = new String[][]{
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-    };
+    public void maps(int[][] grass, int[][] caves, int[][] underworld) {
+        grass = new int[10][10];
+        caves = new int[10][10];
+        underworld = new int[10][10];            
+        }
 
-    caves = new String[][]{
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-    };
-
-    underworld = new String[][]{
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-        {"O","O","O","O","O","O","O","O","O","O"},
-    };
-
-}
 }
