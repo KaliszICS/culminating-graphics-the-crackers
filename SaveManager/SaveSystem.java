@@ -1,37 +1,33 @@
 package SaveManager;
-import java.util.List;
-import java.util.ArrayList;
-import java.io.Serializable;
-import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+//* "Progress successfully backed up!", "Game saved successfully!"
+//No save file detected or mismatch found. Starting fresh." */
+import java.io.IOException;
 
 public class SaveSystem {
-    private String saveDirectory;
-    private String saveFilePath;
-
-    public SaveSystem() {
-        this.saveDirectory = System.getProperty("user.home") + File.separator + "MyGameSaves";
-        this.saveFilePath = 
-        createSaveDirectory();
-    }
-    public SaveSystem(String customPath) {
-        this.saveFilePath = customPath;
-        File file = new File(saveFilePath);
-        this.saveDirectory = file.getParent();
-        createSaveDirectory();
-    }
-
-    private void createSaveDirectory() {
-        File directory = new File(saveDirectory);
-        if (!directory.exists()) {
-            directory.mdirs();
+    public void saveGame(SaveData data, String filename) {
+        try(FileWriter writer = new FileWriter(filename)) {
+            writer.write(data.serialize());
+            System.out.println("Progess successfully backed up!");
+        } catch (IOException e) {
+            System.out.println("Error saving game: " + e.getMessage());
         }
     }
-    //saveFile()
-    public SaveData saveFile() {
-        File file = new File(saveFilePath);
+
+    public SaveData loadGame(String filename) {
+        File file = new File(filename);
+
         if (!file.exists()) {
-            System.out.println();
+            System.out.println("No save file detected or mismatch found. Starting fresh.");
+            return null;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String raw = reader.readLine();
+            System.out.println("Game saved successfully!");
+        } catch (IOException e) {
+            System.out.println("No save file detected or mismatch found. Starting fresh");
             return null;
         }
     }
