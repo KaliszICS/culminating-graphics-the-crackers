@@ -2,27 +2,26 @@ package CharacterSystem;
 
 public class Character {
     private String name;
-    private int maxHP;
-    private int maxMP;
     private int currentHP;
     private int currentMP;
+    private int Heal;
     private int attackDMG;
-    private int speed;
 
 
-    public Character(String name, int maxHP, int maxMP, int currentHP, int currentMP, int attackDMG, int speed) {
+    public Character(String name, int currentHP, int currentMP,int Heal, int attackDMG) {
         this.name = name;
-        this.maxHP = maxHP;
-        this.maxMP = maxMP;
         this.currentHP = currentHP;
         this.currentMP = currentMP;
+        this.Heal = Heal;
         this.attackDMG = attackDMG;
-        this.speed = speed;
         
     }
 
     public void takeDamage(int amount) {
         this.currentHP = Math.max(0, currentHP - amount);
     }
-    
+    public void healtakenDMG(int amount) {
+        
+    }
+
 }
