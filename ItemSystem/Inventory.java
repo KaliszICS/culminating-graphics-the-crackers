@@ -1,5 +1,5 @@
 package ItemSystem;
-
+import Java.util.Scanner;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -33,9 +33,6 @@ public class Inventory {
 
     //Methods
     public void consume(Item item){
-        //Add some logic here
-
-
         this.inv.remove(item);
     }
 
@@ -48,6 +45,20 @@ public class Inventory {
             this.inv.add(item);
         }
     }
+
+    public static void InventorySearch(String[] Inventory, int target){
+        System.out.println("Which item would you like to use?");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+        if (input == contains(Inventory)) {
+            for (int i = 0; i < Inventory.length; i++) {
+                if (Inventory[i] == target) {
+                    System.out.println("You have chosen " + input);
+                }
+            }
+        }
+    }
+
 
     //DEBUGGING
     public static void main(String[] args){
