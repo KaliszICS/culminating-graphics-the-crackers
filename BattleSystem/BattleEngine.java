@@ -2,8 +2,8 @@ import BattleSystem.Combatant;
 
 public class BattleEngine {
     public static void main(String[] args) {
-        Combatant player = new Hero("Cloud", 100, 20);
-        Combatant enemy = new Monster("Sephiroth Clone", 120, 15);
+        Combatant player = new Character();
+        Combatant enemy = new Boss();
 
 
         System.out.println("A wild " +  enemy.getName() + " appears!");
