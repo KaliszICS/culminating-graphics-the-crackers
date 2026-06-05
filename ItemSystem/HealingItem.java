@@ -2,20 +2,20 @@ package ItemSystem;
 
 public class HealingItem extends Item {
     //private int quantity;
-    
+    private int HP;
+
     public HealingItem(String name){
         super(name);
     }
 
-    public Item(String name){
+    public String Item(String name){
         this.name = name;
-        System.out.println(name);
-        //this.quantity = quantity;
+        return this.name;
     }
 
-    public Heal(int HP){
+    public int Heal(int HP){
         this.HP = HP;
-        system.out.println(HP);
+        return this.HP;
     }
 
     @Override
