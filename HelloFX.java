@@ -1,44 +1,44 @@
-import java.awt.Paint;
 
-import MapSystem.Map;
+import Graphics.ViewManager;
+import MapSystem.GameMap;
 import MapSystem.MapControls;
+import MapSystem.Interactables.Door.Door;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class HelloFX extends Application {
-    public Map map = new Map(new String[][]{
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o",},
+    public GameMap map = new GameMap(new String[][]{
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
+            {"o","o","o","o","o","o","o","o","o","o",},
         }, new int[]{0,0});
     public MapControls mC = new MapControls(map);
 
     @Override
     public void start(Stage stage) {
-        //String javaVersion = System.getProperty("java.version");
-        //String javafxVersion = System.getProperty("javafx.version");
-        //Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        //Scene scene = new Scene(new StackPane(l), 640, 480);
-
-        GridPane mapGrid = map.getGP();
+        map.addInteractable(new Door("door", new int[]{3,3}, "a"));
         map.updateMap();
-        
-        Scene mapScene = new Scene(mapGrid, 640,480);
 
-        stage.setScene(mapScene);
+        Parent mapRoot = map.getRoot();
+
+        Scene scene = new Scene(mapRoot, 640,480, Color.AQUA);
+
+        ViewManager.setScene(scene);
+        stage.setScene(scene);
         stage.show();
-
+        
         //Keystroke functionality
-        mapScene.setOnKeyPressed(event -> {
-            stage.setTitle(event.getCode().toString());
-
+        scene.setOnKeyPressed(event -> {
             mC.doKeyBehaviour(event.getCode());
         });
     }

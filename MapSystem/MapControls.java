@@ -3,18 +3,20 @@ package MapSystem;
 import javafx.scene.input.KeyCode;
 
 public class MapControls {
-    private Map map;
+    private GameMap map;
 
-    public MapControls(Map map){
+    public MapControls(GameMap map){
         this.map = map;
     }
 
     //GettersSetters
-    public Map getMap(){
+    public GameMap getMap(){
         return this.map;
     }
 
     public void doKeyBehaviour(KeyCode k){
+        //this is going to be pretty yikes methinks
+
         switch(k.toString()){
             case "UP", "W":
                 map.move(new int[]{0,-1});
@@ -27,7 +29,6 @@ public class MapControls {
                 break;
             case "RIGHT", "D":
                 map.move(new int[]{1,0});
-                System.out.println("D");
                 break;
         }
 
