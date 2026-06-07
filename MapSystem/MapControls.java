@@ -14,6 +14,10 @@ public class MapControls {
         return this.map;
     }
 
+    public void setMap(GameMap map){
+        this.map = map;
+    }
+
     public void doKeyBehaviour(KeyCode k){
         //this is going to be pretty yikes methinks
 

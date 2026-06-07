@@ -2,6 +2,7 @@
 import Graphics.ViewManager;
 import MapSystem.GameMap;
 import MapSystem.MapControls;
+import MapSystem.MapData;
 import MapSystem.Interactables.Door.Door;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -10,23 +11,14 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class HelloFX extends Application {
-    public GameMap map = new GameMap(new String[][]{
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-            {"o","o","o","o","o","o","o","o","o","o",},
-        }, new int[]{0,0});
-    public MapControls mC = new MapControls(map);
+    public GameMap map;
+    public MapControls mC;
 
     @Override
     public void start(Stage stage) {
-        map.addInteractable(new Door("door", new int[]{3,3}, "a"));
+        map = MapData.GRASSLANDS;
+        mC = new MapControls(map);
+        
         map.updateMap();
 
         Parent mapRoot = map.getRoot();
