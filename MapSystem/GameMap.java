@@ -81,7 +81,6 @@ public class GameMap {
         int[] resultVector = new int[]{playerPos[0] + moveVector[0], playerPos[1] + moveVector[1]};
 
         Interactable found = findInteractable(resultVector);
-        System.out.println("A");
 
         if(found != null){
             found.interact(this);
