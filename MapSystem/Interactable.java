@@ -34,6 +34,12 @@ public class Interactable {
     }
 
     //Methods
+
+    /**
+     * Generic interact behaviour
+     * @param map Pointer to map with interactable (because i suck at coding)
+     * @return (Supposed to determine whether or not this is deleted after interaction, but it's kind of irrelevant)
+     */
     public boolean interact(GameMap map){
         //Generic interaction
         return true;

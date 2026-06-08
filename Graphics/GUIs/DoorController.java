@@ -1,7 +1,8 @@
-package MapSystem.Interactables.Door;
+package Graphics.GUIs;
 
 import Graphics.ViewManager;
 import MapSystem.GameMap;
+import MapSystem.Interactables.Door.Door;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -10,7 +11,7 @@ public class DoorController {
     private GameMap map;
     private Door door;
 
-    public void setEnd(GameMap map){
+    public void setMap(GameMap map){
         this.map = map;
     }
 
@@ -23,7 +24,8 @@ public class DoorController {
 
     @FXML
     public void exit(ActionEvent e){
-        ViewManager.setRoot(map.getRoot());
+
+        ViewManager.openMap();
         map.setCanMove(true);
     }
 

@@ -4,22 +4,18 @@ import java.util.Arrays;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
 public class GameMap {
-    private Tile[][] grid;//replace with actual tiles because representing stuff with strings suk
-
-    //Im not even sure if this is bad practice, but I'm too lazy to use anything new
+    private Tile[][] grid;
     private int[] playerPos;
     private ArrayList<Interactable> interactables;
     private boolean canMove = true;
-
-    //for graphics
     GridPane mapGrid = new GridPane();
     StackPane mapRoot = new StackPane(mapGrid);
 
@@ -76,6 +72,11 @@ public class GameMap {
     }
 
     //Methods
+
+    /**
+     * Moves the playerpos by a vector  
+     * @param moveVector The vector to be added to playerpos
+     */
     public void move(int[] moveVector){
         if(!canMove){return;}
         int[] resultVector = new int[]{playerPos[0] + moveVector[0], playerPos[1] + moveVector[1]};
@@ -96,6 +97,11 @@ public class GameMap {
         //ADD ERROR LOGIC
     }
 
+    /**
+     * returns an interactable if interactable at position interactvector
+     * @param interactVector position to be checked
+     * @return interactable found, or null if not found
+     */
     public Interactable findInteractable(int[] interactVector){
         Interactable found = null;
 
@@ -109,6 +115,30 @@ public class GameMap {
         return found;
     }
 
+    /**
+     * Run move() based on the key pressed
+     * @param k Keycode of key pressed
+     */
+    public void doKeyBehaviour(KeyCode k){
+        //this is going to be pretty yikes methinks
+
+        switch(k.toString()){
+            case "UP", "W":
+                move(new int[]{0,-1});
+                break;
+            case "DOWN", "S":
+                move(new int[]{0,1});
+                break;
+            case "LEFT", "A":
+                move(new int[]{-1,0});
+                break;
+            case "RIGHT", "D":
+                move(new int[]{1,0});
+                break;
+        }
+
+    }
+
     //MAP GRAPHICS
     Label player = new Label("Player");
 
@@ -117,6 +147,9 @@ public class GameMap {
         mapRoot.setBackground(Background.fill(Color.GREEN));
     }
 
+    /**
+     * redraws the entire map (because i suck at coding lol)
+     */
     public void updateMap(){
         //Yes, everytime the player moves the map will be redrawn completely, this kinda sux, but javaFX is not a game engine
         mapGrid.getChildren().clear();
@@ -132,10 +165,6 @@ public class GameMap {
         for(Interactable i : interactables){
             mapGrid.add(i.getArt(), i.getPos()[0], i.getPos()[1]);
         }
-    }
-
-    public GridPane getGP(){
-        return this.mapGrid;
     }
 
     public StackPane getRoot(){
