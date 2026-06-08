@@ -23,7 +23,7 @@ public class SaveData {
         this.currentMapArea = currentMapArea;
     }
 
-    public char[] serialize() {
+    public char[] serialize1() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'serialize'");
     }
@@ -81,7 +81,7 @@ public class SaveData {
         original.displayInfo();
 
         // convert to string
-        String saved = original.serialize();
+        String saved = original.serialize1();
         System.out.println("\nSaved as string: " + saved);
         
         // convert back from string
