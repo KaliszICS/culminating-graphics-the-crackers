@@ -23,6 +23,11 @@ public class SaveData {
         this.currentMapArea = currentMapArea;
     }
 
+    public char[] serialize() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'serialize'");
+    }
+
     //Converts saveData
     public String serialize() {
         return playerHP + ","

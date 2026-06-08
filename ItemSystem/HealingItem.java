@@ -21,6 +21,8 @@ public class HealingItem extends Item {
     @Override
     public String toString(){
         return this.name;
+    }
+    public int returnHP() {
         return this.HP;
     }
 }

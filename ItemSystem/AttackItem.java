@@ -2,6 +2,9 @@ package ItemSystem;
 
 public class AttackItem extends Item {
 
+    protected int Damage;
+    protected String name;
+
     public AttackItem(String name){
         super(name);
     }
@@ -20,6 +23,9 @@ public class AttackItem extends Item {
     @Override
     public String toString(){
         return this.name;
+    }
+    
+    public int returnDamage() {
         return this.Damage;
     }
 }

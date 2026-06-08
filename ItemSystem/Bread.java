@@ -3,7 +3,9 @@ import java.util.Random;
 
 public class Bread extends Item {
     
-    private int HP;
+    protected int HP;
+    protected int Damage;
+    protected String name;
     
     public Bread(String name){
         super(name);
@@ -21,11 +23,11 @@ public class Bread extends Item {
     }
 
     public void Damage(int Damage){
+        this.Damage = Damage;
         System.out.println(Damage);
     }
 
     public int eatBread(int Heal, int Damage){
-            Random r = newRandom();
             int z = rnd.nextInt(100);
             int odds = 0;
 
@@ -60,6 +62,11 @@ public class Bread extends Item {
     @Override
     public String toString(){
         return this.name;
+    }
+    public int returnHP() {
         return this.HP;
+    }
+    public int returnDamage() {
+        return this.Damage;
     }
 }

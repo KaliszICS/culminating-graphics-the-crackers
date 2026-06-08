@@ -9,9 +9,4 @@ public class Maps {
         caves = new int[10][10];
         underworld = new int[10][10];            
         }
-        
-        public void moveUp();
-        public void moveDown();
-        public void moveLeft();
-        public void moveRight();
 }

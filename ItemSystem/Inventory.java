@@ -47,8 +47,8 @@ public class Inventory {
     }
 
     public static void InventorySearch(String[] Inventory, int target){
-        System.out.println("Which item would you like to use?");
         Scanner input = new Scanner(System.in);
+        System.out.println("Which item would you like to use?");
         input.nextLine();
         if (input == contains(Inventory)) {
             for (int i = 0; i < Inventory.length; i++) {

@@ -18,7 +18,6 @@ public class SaveSystem {
 
 public SaveData loadGame(String filename) {
         File file = new File(filename);
-
         if (!file.exists()) {
             System.out.println("No save file detected or mismatch found. Starting fresh.");
             return null;

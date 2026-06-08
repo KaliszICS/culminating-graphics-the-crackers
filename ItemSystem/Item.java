@@ -3,7 +3,7 @@ package ItemSystem;
 
 //could be interface tbf
 public class Item {
-    private String name;
+    protected String name;
     //private int quantity;
     
     public Item(String name){

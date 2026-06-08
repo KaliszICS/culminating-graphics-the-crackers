@@ -1,6 +1,6 @@
-public class BattleSystem {
+public abstract BattleSystem {
 // Abstract base class for players and computer-controlled entities
-public abstract class Combatant
+public abstract Combatant {
 private String name;
 private int hp;
 private int maxHp;
@@ -32,4 +32,5 @@ public abstract void executeTurn(Combatant target);
 // Getters and Setters
 public String getName() { return name; }
 public int getAttackPower() { return attackPower; }
+}
 }
