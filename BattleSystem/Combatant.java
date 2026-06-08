@@ -29,6 +29,11 @@ public abstract void executeTurn(Combatant target);
 
 
 // Getters and Setters
-public String getName() { return name; }
-public int getAttackPower() { return attackPower; }
+public String getName() {
+    return name; 
+}
+
+public int getAttackPower() { 
+    return attackPower; 
+}
 }
