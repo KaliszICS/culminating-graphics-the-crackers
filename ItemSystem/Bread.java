@@ -27,34 +27,30 @@ public class Bread extends Item {
     }
 
     public void eatBread(int Heal, int Damage){
-            int z = rnd.nextInt(100);
-            int odds = 0;
+            Random random = new Random();
+            double moldy = 0.25;
 
-            odds += 75;
-            if (z < odds){
+            if (random.nextDouble() > moldy){
                 System.out.println("This bread is GOOD BREAD!");
                 System.out.println("You have gained" + HP + "HP");
             }
-            odds += 25;
-            if (z < odds) {
+            if (random.nextDouble() < moldy) {
                 System.out.println("This bread is MOLDY BREAD...");
-                System.out.println("You have gained" + Damage + "HP");
+                System.out.println("You have lost" + Damage + "HP");
             }
         }
         
     public void attackBread(int Heal, int Damage){
-            int z = rnd.nextInt(100);
-            int odds = 0;
+            Random random = new Random();
+            double moldy = 0.25;
 
-            odds += 75;
-            if (z < odds){
-                System.out.println("This bread is GOOD BREAD! The boss gains HP.");
-                System.out.println("The boss gained" + HP + "HP");
+            if (random.nextDouble() > moldy){
+                System.out.println("This bread is GOOD BREAD!");
+                System.out.println("The boss has gained" + HP + "HP");
             }
-            odds += 25;
-            if (z < odds) {
+            if (random.nextDouble() < moldy) {
                 System.out.println("This bread is MOLDY BREAD...");
-                System.out.println("You have dealt" + Damage + "HP");            
+                System.out.println("The boss has lost" + Damage + "HP");
             }
         }
         
