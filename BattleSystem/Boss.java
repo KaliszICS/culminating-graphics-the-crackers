@@ -1,11 +1,10 @@
 import java.util.Random;
 import BattleSystem.Combatant;
-public class BattleStrategy2 {
-    
-    public class Monster extends Combatant {
+
+    public class Boss extends Combatant {
         private Random random = new Random();
 
-        public Monster(String name, int maxHp, int attackPower) {
+        public Boss(String name, int maxHp, int attackPower) {
             super(name, maxHp, attackPower);
         }
         
@@ -18,7 +17,6 @@ public class BattleStrategy2 {
             int finalDamage = Math.max(1, getAttackPower() + variance);
 
 
-            System.out.println(getName() + " bites " + target.getName() + " fiercely!");
+            System.out.println(getName() + " attacks " + target.getName() + " fiercely!");
             target.takeDamage(finalDamage);
         }
-   }

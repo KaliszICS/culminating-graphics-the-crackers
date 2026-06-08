@@ -1,6 +1,8 @@
 import BattleSystem.Combatant;
 
 public class BattleEngine {
+    String Player;
+    String Boss;
     public static void main(String[] args) {
         Combatant player = new Character();
         Combatant enemy = new Boss();

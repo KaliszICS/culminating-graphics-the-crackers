@@ -1,10 +1,9 @@
-public abstract BattleSystem {
-// Abstract base class for players and computer-controlled entities
 public abstract Combatant {
-private String name;
-private int hp;
-private int maxHp;
-private int attackPower;
+
+protected String name;
+protected int hp;
+protected int maxHp;
+protected int attackPower;
 
 
 public Combatant(String name, int maxHp, int attackPower) {
@@ -32,5 +31,4 @@ public abstract void executeTurn(Combatant target);
 // Getters and Setters
 public String getName() { return name; }
 public int getAttackPower() { return attackPower; }
-}
 }
