@@ -3,6 +3,12 @@ package MapSystem;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 
+
+/**
+ * Interactable superclass, does interacting, and also is coupling hell
+ * @author Eric Chen
+ * @version v-0.067
+ */
 public class Interactable {
     protected String name;
     protected int[] position;

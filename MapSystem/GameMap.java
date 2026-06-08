@@ -11,6 +11,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
+/**
+ * Games map object. Stores tile grid map, player position, and interactable position
+ * handles movement on key press and handling interaction with interactables.
+ * Yes this class does too much and yes it is coupling hell
+ * 
+ * @author Eric Chen
+ * @version v0.067
+ */
 public class GameMap {
     private Tile[][] grid;
     private int[] playerPos;

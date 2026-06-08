@@ -2,7 +2,6 @@ package Graphics.GUIs;
 
 import MapSystem.GameMap;
 import MapSystem.Interactables.Boss.Boss;
-import MapSystem.Interactables.Door.Door;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 

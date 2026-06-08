@@ -7,6 +7,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Static manager that stores the scene and changes it between the map and different GUIs
+ * im about to stackOverthrow
+ * 
+ * @author Eric Chen and the thousands of reddit/stackoverflow threads
+ * @version ALPHA.6.7
+ */
 public class ViewManager {
     private static Scene scene;
 
