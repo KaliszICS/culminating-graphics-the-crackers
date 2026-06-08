@@ -1,9 +1,7 @@
-public class BattleStrategy2 {
-    import java.util.Random;
-
+import java.util.Random;
 import BattleSystem.Combatant;
-
-
+public class BattleStrategy2 {
+    
     public class Monster extends Combatant {
         private Random random = new Random();
 
