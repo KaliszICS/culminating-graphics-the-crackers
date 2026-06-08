@@ -1,5 +1,6 @@
 package MapSystem.Interactables.Boss;
 
+import Graphics.ViewManager;
 import MapSystem.GameMap;
 import MapSystem.Interactable;
 import javafx.scene.Node;
@@ -13,7 +14,7 @@ public class Boss extends Interactable{
 
     @Override
     public boolean interact(GameMap map){
-        
+        ViewManager.openBattle(null, map);
         return true;
     }
 }

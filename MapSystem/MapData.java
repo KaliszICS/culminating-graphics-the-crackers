@@ -3,7 +3,10 @@ package MapSystem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import MapSystem.Interactables.Boss.Boss;
 import MapSystem.Interactables.Door.Door;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 public class MapData {
@@ -11,7 +14,8 @@ public class MapData {
     private static Tile tree = new Tile(new Image("Resources/Sprites/Tree.png",45.0 , 45.0, true, false), true);
 
     private static Interactable[] temp = new Interactable[]{
-        new Door("Door", new int[]{0,5}, "a")
+        new Door("Door", new int[]{0,5}, "a"),
+        new Boss("Boss", new int[]{4,1}, new Label("real")),
     };
     private static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
 
