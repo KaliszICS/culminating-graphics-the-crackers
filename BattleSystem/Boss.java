@@ -7,7 +7,6 @@ import java.util.Random;
             super(name, maxHp, attackPower);
         }
         
-        
         @Override
         public void executeTurn(Combatant target) {
             System.out.println("\n--- Enemy Turn! ---");

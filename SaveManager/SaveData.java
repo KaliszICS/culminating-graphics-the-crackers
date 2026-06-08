@@ -23,11 +23,6 @@ public class SaveData {
         this.currentMapArea = currentMapArea;
     }
 
-    public static String serialize1() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'serialize'");
-    }
-
     //Converts saveData
     public String serialize() {
         return playerHP + ","
@@ -81,7 +76,7 @@ public class SaveData {
         original.displayInfo();
 
         // convert to string
-        String saved = SaveData.serialize1();
+        String saved = original.serialize();
         System.out.println("\nSaved as string: " + saved);
         
         // convert back from string
