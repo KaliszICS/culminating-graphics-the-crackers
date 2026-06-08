@@ -1,5 +1,4 @@
 import java.util.Random;
-import BattleSystem.Combatant;
 
     public class Boss extends Combatant {
         private Random random = new Random();

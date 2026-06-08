@@ -1,10 +1,10 @@
 import java.util.Scanner; 
 
-public class Hero extends Combatant {
+public class PlayerBattle extends Combatant {
     private Scanner scanner = new Scanner(System.in);
 
 
-    public Hero(String name, int maxHp, int attackPower) {
+    public PlayerBattle(String name, int maxHp, int attackPower) {
         super(name,maxHp, attackPower);
     }
     

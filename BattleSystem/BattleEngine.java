@@ -1,4 +1,3 @@
-import BattleSystem.Combatant;
 
 public class BattleEngine {
     String Player;
@@ -6,23 +5,21 @@ public class BattleEngine {
     public static void main(String[] args) {
         Combatant player = new Character();
         Combatant enemy = new Boss();
-
-
-        System.out.println("A wild " +  enemy.getName() + " appears!");
-
+        System.out.println("A SQUARE appears!");
 
         // Main Turn Loop
         while (player.isAlive() && enemy.isAlive()) {
-            // Player Side
-            player.executeTurn(enemy);
+            player.executeTurn(enemy); // Player Side
             if (!enemy.isAlive()); {
-                System.out.println("\nVictory! " + enemy.getName() + " has been defeated.");
+                System.out.println("\nVictory! " + "The Square has been defeated.");
                 break;
             }
-            
-            
-            // Short pause simulation for scannability
-            try { Thread.sleep(1000); } catch (InterruptedException e) {}
+        // Short pause simulation for scannability
+            try { Thread.sleep(1000); 
+
+            } catch (InterruptedException e) {
+                
+            }
 
 
             // Enemy Side
