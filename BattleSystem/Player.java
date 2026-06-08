@@ -1,5 +1,9 @@
 import java.util.Scanner; 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85704be (name change)
 public class Player extends Combatant {
     private Scanner scanner = new Scanner(System.in);
 
