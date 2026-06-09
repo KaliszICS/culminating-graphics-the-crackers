@@ -39,7 +39,7 @@ public class Boss extends Character {
 
 Boss plainsBoss = new Boss("Plains Guardian", "plains", "Earth Slam", 250, 25);
 
-Boss caveBoss = new Boss("Cave Titan", "cave", "Rock Crush", 350, 35);
+Boss caveBoss = new Boss("Cave Titan", "cave", "Rock Road", 350, 35);
 
 Boss underworldBoss = new Boss("Unknown Being", "underworld", "Darkness Beam", 500, 50);
 }
