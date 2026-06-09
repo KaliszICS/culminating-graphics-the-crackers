@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Graphics.GUIs.BossController">
+   <children>
+      <AnchorPane prefHeight="480.0" prefWidth="640.0" StackPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="background" fitHeight="480.0" fitWidth="640.0">
+               <image>
+                  <Image url="@BossBG.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="playerSprite" fitHeight="114.0" fitWidth="134.0" layoutX="44.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="/Resources/Sprites/Player.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bossSprite" fitHeight="244.0" fitWidth="219.0" layoutX="398.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="/Resources/Sprites/greenBoss.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="14.0" layoutY="315.0" prefHeight="151.0" prefWidth="620.0">
+               <children>
+                  <Button fx:id="defendButton" layoutX="216.0" layoutY="36.0" mnemonicParsing="false" onAction="#defend" prefHeight="114.0" prefWidth="123.0" text="Defend" />
+                  <Button fx:id="attackButton" layoutX="70.0" layoutY="36.0" mnemonicParsing="false" onAction="#attack" prefHeight="114.0" prefWidth="123.0" text="Attack" />
+                  <Button fx:id="invButton" layoutX="428.0" layoutY="36.0" mnemonicParsing="false" onAction="#openInv" prefHeight="114.0" prefWidth="123.0" text="Inventory" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="playerHP" layoutX="69.0" layoutY="125.0" prefHeight="33.0" prefWidth="77.0" text="PlrHP">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="bossHP" layoutX="455.0" layoutY="14.0" prefHeight="35.0" prefWidth="105.0" text="BossHP">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="inventoryView" layoutX="83.0" layoutY="29.0" prefHeight="300.0" prefWidth="483.0">
+               <children>
+                  <ListView fx:id="inventoryList" prefHeight="234.0" prefWidth="483.0" />
+                  <TextField fx:id="invSearch" layoutX="172.0" layoutY="240.0" onKeyTyped="#typed" prefHeight="25.0" prefWidth="219.0" promptText="Enter name of item you want to use" />
+                  <Button fx:id="useButton" layoutX="408.0" layoutY="240.0" mnemonicParsing="false" onAction="#tryUse" text="Use" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

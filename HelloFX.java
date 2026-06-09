@@ -24,6 +24,7 @@ public class HelloFX extends Application {
         ViewManager.setScene(scene);
         ViewManager.init();
 
+        stage.setResizable(false); //sorry, but i physically CAN'T get the scenes to stay centered when resized, also noVNC still has the maximize button, whyyy
         stage.setScene(scene);
         stage.show();
         

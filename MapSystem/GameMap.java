@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
@@ -148,7 +149,7 @@ public class GameMap {
     }
 
     //MAP GRAPHICS
-    Label player = new Label("Player");
+    StackPane player = new StackPane(new ImageView(new Image("/Resources/Sprites/PlayerSmall.png",20,20,true,false))); //change this when we have like a player singleton or something
 
     public void initMap(GridPane map){
         map.setAlignment(Pos.CENTER);

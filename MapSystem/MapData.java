@@ -8,13 +8,14 @@ import MapSystem.Interactables.Boss.Boss;
 import MapSystem.Interactables.Door.Door;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class MapData {
     private static Tile gras = new Tile(new Image("Resources/Sprites/Grass.png",45.0 , 45.0, true, false), false);
     private static Tile tree = new Tile(new Image("Resources/Sprites/Tree.png",45.0 , 45.0, true, false), true);
 
     private static Interactable[] temp = new Interactable[]{
-        new Door("Door", new int[]{0,5}, "a"),
+        new Door("Door", new int[]{0,5}, "a", new ImageView(new Image("/Resources/Sprites/DoorSmall.png",40,40,true,false))),
         new Boss("Boss", new int[]{4,1}, new Label("boss")),
     };
     private static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
