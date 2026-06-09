@@ -57,6 +57,7 @@ public class Character {
     public boolean isAlive() {
         return isAlive;
     }
+    
     //setters for savesystem
     public void setCurrentHP(int hp) { 
         this.currentHP = hp; 
