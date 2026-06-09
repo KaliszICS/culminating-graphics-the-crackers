@@ -369,3 +369,4 @@ public class TurnSystem {
         System.out.println("\n  *** VICTORY ***");
         scanner.close();
     }
+}
