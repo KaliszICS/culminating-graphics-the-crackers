@@ -1,9 +1,7 @@
 package Graphics.GUIs;
 
-import Graphics.ViewManager;
 import MapSystem.GameMap;
 import MapSystem.Interactables.Boss.Boss;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;

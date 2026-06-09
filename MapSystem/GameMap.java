@@ -166,12 +166,12 @@ public class GameMap {
             for(int j = 0; j < grid[0].length; j++){
                 mapGrid.add(new ImageView(grid[i][j].getSprite()), i, j);
             }
-        }
+        } //crap bro, nodes longer than the tile sprites elongate the grid leaving gaps
 
         mapGrid.add(player,playerPos[0],playerPos[1]);
 
         for(Interactable i : interactables){
-            mapGrid.add(i.getArt(), i.getPos()[0], i.getPos()[1]);
+            mapGrid.add(i.getArt(), i.getPos()[0], i.getPos()[1]); //I really should separate updating entities and updating the map, but whatever
         }
     }
 
