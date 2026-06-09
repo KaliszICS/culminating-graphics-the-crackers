@@ -14,8 +14,6 @@ public class BattleSystem<ActionMenu, Sword, MagicWand, PowerFist, GoodBread, Mo
 =======
 >>>>>>> e267cb9 (eh)
 
-// ── Items ─────────────────────────────────────────────────────────────────────
-
 abstract class Item {
     protected String name;
     protected String description;
@@ -50,13 +48,19 @@ class MagicWand extends Item {
     public MagicWand(String name, int damage, int heal, int mpCost, String description) {
         super(name, description, 1);
         this.damage = damage;
-        this.heal   = heal;
+        this.heal = heal;
         this.mpCost = mpCost;
     }
 
-    public int getDamage() { return damage; }
-    public int getHeal()   { return heal; }
-    public int getMpCost() { return mpCost; }
+    public int getDamage() {
+         return damage; 
+        }
+    public int getHeal() {
+         return heal; 
+        }
+    public int getMpCost() {
+         return mpCost; 
+        }
 }
 
 class PowerFist extends Item {
@@ -67,7 +71,9 @@ class PowerFist extends Item {
         this.damage = damage;
     }
 
-    public int getDamage() { return damage; }
+    public int getDamage() {
+         return damage; 
+        }
 }
 
 abstract class Bread extends Item {
@@ -77,7 +83,9 @@ abstract class Bread extends Item {
         super(name, description, quantity);
     }
 
-    public int getHeal() { return heal; }
+    public int getHeal() {
+         return heal; 
+        }
 }
 
 class GoodBread extends Bread {
@@ -101,52 +109,75 @@ class Player {
     private int HP, maxHP, MP, maxMP;
 
     public Player(String name, int HP, int MP) {
-        this.name  = name;
-        this.HP    = HP;
+        this.name = name;
+        this.HP = HP;
         this.maxHP = HP;
-        this.MP    = MP;
+        this.MP = MP;
         this.maxMP = MP;
     }
 
-    public void takeDamage(int amount) { HP = Math.max(0, HP - amount); }
-    public void heal(int amount)       { HP = Math.min(maxHP, HP + amount); }
-    public boolean isAlive()           { return HP > 0; }
+    public void takeDamage(int amount) {
+         HP = Math.max(0, HP - amount); 
+        }
+    public void heal(int amount) {
+         HP = Math.min(maxHP, HP + amount); 
+        }
+    public boolean isAlive(){
+         return HP > 0; 
+        }
 
-    public String getName()   { return name; }
-    public int getHP()        { return HP; }
-    public int getMP()        { return MP; }
-    public void setMP(int mp) { this.MP = Math.max(0, mp); }
+    public String getName() {
+         return name; 
+        }
+
+    public int getHP() {
+         return HP; 
+        }
+
+    public int getMP() {
+         return MP; 
+        }
+
+    public void setMP(int mp) {
+         this.MP = Math.max(0, mp); 
+        }
 
     public void printStatus() {
         System.out.println("  " + name + " | HP: " + HP + "/" + maxHP + " | MP: " + MP + "/" + maxMP);
     }
 }
 
-// ── Boss ──────────────────────────────────────────────────────────────────────
-
 class Boss {
     private String name;
     private int HP, maxHP, attackPower;
 
     public Boss(String name, int HP, int attackPower) {
-        this.name        = name;
-        this.HP          = HP;
-        this.maxHP       = HP;
+        this.name = name;
+        this.HP = HP;
+        this.maxHP = HP;
         this.attackPower = attackPower;
     }
 
-    public void takeDamage(int amount) { HP = Math.max(0, HP - amount); }
-    public boolean isAlive()           { return HP > 0; }
+    public void takeDamage(int amount) {
+         HP = Math.max(0, HP - amount); 
+        }
 
-    public String getName()     { return name; }
-    public int getAttackPower() { return attackPower; }
+    public boolean isAlive() {
+         return HP > 0; 
+        }
+
+    public String getName() {
+         return name; 
+        }
+
+    public int getAttackPower() {
+         return attackPower; 
+        }
 
     public void printStatus() {
         System.out.println("  " + name + " | HP: " + HP + "/" + maxHP);
     }
 }
-
-// ── ActionMenu ────────────────────────────────────────────────────────────────
 
 class ActionMenu {
     private Scanner scanner;
@@ -186,10 +217,10 @@ class ActionMenu {
     }
 }
 
-// ── BattleSystem ──────────────────────────────────────────────────────────────
 
 <<<<<<< HEAD
 /** Manages turn-based combat between a Player and a Boss. */
+<<<<<<< HEAD
 public class BattleSystem {
 =======
 /** Manages turn-based combat between a Player and a Boss. 
@@ -197,6 +228,9 @@ public class BattleSystem {
 public class BattleSystem<fixed> {
 >>>>>>> 2eccfe4 (fixed battle system)
 >>>>>>> e267cb9 (eh)
+=======
+public class TurnSystem {
+>>>>>>> 4ea3609 (update assignment)
 
     private int currentTurn;
     private Random random;
@@ -209,7 +243,7 @@ public class BattleSystem<fixed> {
     private MoldyBread moldyBread;
 
     /** @param scanner used to read player input during combat */
-    public BattleSystem(Scanner scanner) {
+    public TurnSystem(Scanner scanner) {
         this.currentTurn = 0;
         this.random = new Random();
         this.actionMenu = new ActionMenu(scanner);
@@ -296,14 +330,14 @@ public class BattleSystem<fixed> {
     }
 
     /** @return number of turns elapsed in this battle */
-    public int getCurrentTurn() { return currentTurn; }
-
-    // ── Entry point ───────────────────────────────────────────────────────────
+    public int getCurrentTurn() {
+         return currentTurn; 
+        }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player("Hero", 100, 40);
-        BattleSystem battle = new BattleSystem(scanner);
+        TurnSystem battle = new TurnSystem(scanner);
 
         Boss[] bosses = {
             new Boss("Plains Guardian",   80, 12),
@@ -316,7 +350,7 @@ public class BattleSystem<fixed> {
 
             while (player.isAlive() && boss.isAlive()) {
                 battle.turnOrder(player, boss);
-                int action = battle.actionMenu.chooseAction();
+                int action = battle.ActionMenu.chooseAction();
 
                 if (action == 1) {
                     boss.takeDamage(battle.chooseAttack(player));
