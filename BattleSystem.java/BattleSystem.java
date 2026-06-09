@@ -342,3 +342,4 @@ public class BattleSystem<fixed> {
         scanner.close();
     }
 }
+}
