@@ -9,7 +9,7 @@ public class Boss extends Character {
     public Boss(String name, String bossType, String attack, String finisher, int currentHP, int attackDMG) {
         super(name, currentHP, 0, 0, attackDMG);
         this.attack = attack;
-        this.finisher = finisher;
+        this.attack = finisher;
         this.bossType = bossType;
         this.isDefeated = false;
     }
