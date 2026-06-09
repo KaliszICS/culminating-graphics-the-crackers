@@ -5,7 +5,6 @@ public class Boss extends Character {
     private String finisher;
     private String bossType;
     private boolean isDefeated;
-    private String finisher;
 
     public Boss(String name, String bossType, String attack, String finisher, int currentHP, int attackDMG) {
         super(name, currentHP, 0, 0, attackDMG);
