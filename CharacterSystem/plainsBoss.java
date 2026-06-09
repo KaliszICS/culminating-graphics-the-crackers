@@ -3,7 +3,7 @@ package CharacterSystem;
 public class plainsBoss extends Boss {
 
     public plainsBoss() {
-        super("Plains Guardian", "plains", "Earth Slam", 250, 25);
+        super("Green Square", "plains", "Watch Out For That Tree!", 1000, 25);
     }
 
 }

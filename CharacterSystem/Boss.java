@@ -5,13 +5,14 @@ public class Boss extends Character {
     private String bossType;
     private boolean isDefeated;
 
-    public Boss(String name, String bossType, String attack, int currentHP, int attackDMG) {
+    public Boss(String name, String bossType, String attack, String finisher int currentHP, int attackDMG) {
         super(name, currentHP, 0, 0, attackDMG);
         this.attack = attack;
+        this.finisher = finisher;
         this.bossType = bossType;
         this.isDefeated = false;
     }
-    public void ulimateMove(Character target) {
+    public void critHit(Character target) {
         int damage = getAttackDMG() * 2;
         target.takeDamage(damage);
          System.out.println(getName() + " uses " + attack + " for " + damage + " damage!");
@@ -37,10 +38,10 @@ public class Boss extends Character {
         System.out.println("Attack DMG: " + getAttackDMG());
     }
 
-Boss plainsBoss = new Boss("Plains Guardian", "plains", "Earth Slam", 250, 25);
+Boss plainsBoss = new Boss("Green Square", "plains", "Watch Out For That Tree!", 1000, 50);
 
-Boss caveBoss = new Boss("Cave Titan", "cave", "Rock Road", 350, 35);
+Boss caveBoss = new Boss("Blue Square", "cave", "Rocky Road", 2500, 100);
 
-Boss underworldBoss = new Boss("Unknown Being", "underworld", "Darkness Beam", 500, 50);
+Boss underworldBoss = new Boss("Red Square", "underworld", "Satanic Star", 5000, 300, 666);
 }
 
