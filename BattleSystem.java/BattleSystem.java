@@ -1,8 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 /** Manages turn-based combat between a Player and a Boss. 
  * @param <Sword>
  * @param <MagicWand>
@@ -12,11 +11,7 @@ import java.util.Random;
  * @param <ActionMenu>*
  */
 public class BattleSystem<ActionMenu, Sword, MagicWand, PowerFist, GoodBread, MoldyBread> {
-=======
->>>>>>> e267cb9 (eh)
-=======
-// ── Items ─────────────────────────────────────────────────────────────────────
->>>>>>> 014c8af (e12)
+
 
 abstract class Item {
     protected String name;
@@ -42,8 +37,12 @@ class Sword extends Item {
         this.critChance = critChance;
     }
 
-    public int getDamage()        { return damage; }
-    public double getCritChance() { return critChance; }
+    public int getDamage() {
+         return damage; 
+        }
+    public double getCritChance() {
+         return critChance; 
+        }
 }
 
 class MagicWand extends Item {
@@ -106,7 +105,6 @@ class MoldyBread extends Bread {
     }
 }
 
-// ── Player ────────────────────────────────────────────────────────────────────
 
 class Player {
     private String name;
@@ -222,22 +220,11 @@ class ActionMenu {
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/** Manages turn-based combat between a Player and a Boss. */
-<<<<<<< HEAD
-public class BattleSystem {
-=======
+
 /** Manages turn-based combat between a Player and a Boss. 
  * @param <fixed>*/
-public class BattleSystem<fixed> {
->>>>>>> 2eccfe4 (fixed battle system)
->>>>>>> e267cb9 (eh)
-=======
+
 public class TurnSystem {
->>>>>>> 4ea3609 (update assignment)
-=======
->>>>>>> 014c8af (e12)
 
     private int currentTurn;
     private Random random;
