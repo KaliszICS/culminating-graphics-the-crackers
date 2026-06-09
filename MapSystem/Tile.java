@@ -1,6 +1,5 @@
 package MapSystem;
 
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 
 public class Tile {

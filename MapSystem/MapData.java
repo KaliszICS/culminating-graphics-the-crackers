@@ -15,7 +15,7 @@ public class MapData {
 
     private static Interactable[] temp = new Interactable[]{
         new Door("Door", new int[]{0,5}, "a"),
-        new Boss("Boss", new int[]{4,1}, new Label("real")),
+        new Boss("Boss", new int[]{4,1}, new Label("boss")),
     };
     private static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
 
