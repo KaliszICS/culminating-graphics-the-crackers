@@ -2,6 +2,7 @@ package CharacterSystem;
 
 public class Boss extends Character {
     private String attack;
+    private String finisher;
     private String bossType;
     private boolean isDefeated;
     private String finisher;
@@ -20,6 +21,9 @@ public class Boss extends Character {
     }
      public String getAttack() { 
         return attack; 
+     }
+     public String getFinisher() {
+        return finisher;
      }
     public String getBossType() { 
         return bossType; 
