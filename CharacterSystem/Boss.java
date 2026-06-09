@@ -33,9 +33,7 @@ public class Boss extends Character {
     public void setDefeated(boolean defeated) { 
         isDefeated = defeated; 
     }
-    public String finisher(String finisher) {
-        return finisher;
-    }
+
 
     @Override
     public void displayStats() {
