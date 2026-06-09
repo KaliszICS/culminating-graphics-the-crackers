@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Manages turn-based combat between a Player and a Boss. 
  * @param <Sword>
  * @param <MagicWand>
@@ -13,6 +14,9 @@ import java.util.Random;
 public class BattleSystem<ActionMenu, Sword, MagicWand, PowerFist, GoodBread, MoldyBread> {
 =======
 >>>>>>> e267cb9 (eh)
+=======
+// ── Items ─────────────────────────────────────────────────────────────────────
+>>>>>>> 014c8af (e12)
 
 abstract class Item {
     protected String name;
@@ -219,6 +223,7 @@ class ActionMenu {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /** Manages turn-based combat between a Player and a Boss. */
 <<<<<<< HEAD
 public class BattleSystem {
@@ -231,6 +236,8 @@ public class BattleSystem<fixed> {
 =======
 public class TurnSystem {
 >>>>>>> 4ea3609 (update assignment)
+=======
+>>>>>>> 014c8af (e12)
 
     private int currentTurn;
     private Random random;
@@ -375,5 +382,3 @@ public class TurnSystem {
         System.out.println("\n  *** VICTORY ***");
         scanner.close();
     }
-}
-}
