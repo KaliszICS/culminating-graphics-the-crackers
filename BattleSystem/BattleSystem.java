@@ -1,4 +1,12 @@
 import java.util.Scanner;
+
+import BattleSystem.BattleSystem.ActionMenu;
+import BattleSystem.BattleSystem.GoodBread;
+import BattleSystem.BattleSystem.MagicWand;
+import BattleSystem.BattleSystem.MoldyBread;
+import BattleSystem.BattleSystem.PowerFist;
+import BattleSystem.BattleSystem.Sword;
+
 import java.util.Random;
 
 
@@ -328,15 +336,15 @@ public class TurnSystem {
          return currentTurn; 
         }
 
-    public static void main(String[] args) {
+    public void gameplay(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Player player = new Player("Hero", 100, 40);
         TurnSystem battle = new TurnSystem(scanner);
 
         Boss[] bosses = {
-            new Boss("Plains Guardian",   80, 12),
-            new Boss("Cavern Troll",     120, 18),
-            new Boss("Shadow Sovereign", 160, 24)
+            new Boss("Green Square", "plains", "Square", "Watch Out For That Tree!", 1000, 50);,
+            new Boss("Blue Square", 2500, 100),
+            new Boss("Red Square", 5000, 666)
         };
 
         for (Boss boss : bosses) {
