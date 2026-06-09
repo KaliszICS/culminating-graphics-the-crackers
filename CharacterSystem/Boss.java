@@ -4,6 +4,7 @@ public class Boss extends Character {
     private String attack;
     private String bossType;
     private boolean isDefeated;
+    private String finisher;
 
     public Boss(String name, String bossType, String attack, String finisher, int currentHP, int attackDMG) {
         super(name, currentHP, 0, 0, attackDMG);
@@ -28,6 +29,9 @@ public class Boss extends Character {
     }
     public void setDefeated(boolean defeated) { 
         isDefeated = defeated; 
+    }
+    public String finisher(String finisher) {
+        return finisher;
     }
 
     @Override
