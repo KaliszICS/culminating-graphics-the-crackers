@@ -4,6 +4,7 @@ package ItemSystem;
 //could be interface tbf
 public class Item {
     protected String name;
+    protected String description;
     //private int quantity;
     
     public Item(String name){
@@ -14,5 +15,9 @@ public class Item {
     @Override
     public String toString(){
         return this.name;
+    }
+
+    public String returnName() {
+        throw new UnsupportedOperationException("Unimplemented method 'returnName'");
     }
 }

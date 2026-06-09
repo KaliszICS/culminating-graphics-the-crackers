@@ -46,19 +46,23 @@ public class Inventory {
         }
     }
 
-    public static void InventorySearch(String[] Inventory, int target){
+    public static void InventorySearch(String[] Inventory, String item){
         Scanner input = new Scanner(System.in);
         System.out.println("Which item would you like to use?");
         input.nextLine();
         if (input == contains(Inventory)) {
             for (int i = 0; i < Inventory.length; i++) {
-                if (Inventory[i] == target) {
-                    System.out.println("You have chosen " + input);
+                if (Inventory[i] == item) {
+                    System.out.println("You have chosen " + item);
                 }
             }
         }
+        input.close();
     }
 
+    private static Scanner contains(String[] inventory) {
+        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+    }
 
     //DEBUGGING
     public static void main(String[] args){
