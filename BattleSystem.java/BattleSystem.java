@@ -7,29 +7,30 @@ import java.util.Random;
  * @param <PowerFist>
  * @param <GoodBread>
  * @param <MoldyBread>
- * @param <ActionMenu>*/
+ * @param <ActionMenu>*
+ */
 public class BattleSystem<ActionMenu, Sword, MagicWand, PowerFist, GoodBread, MoldyBread> {
 
     private int currentTurn;
     private Random random;
     private ActionMenu actionMenu;
 
-    private Sword      ironSword;
-    private MagicWand  magicWand;
-    private PowerFist  powerFist;
-    private GoodBread  goodBread;
+    private Sword ironSword;
+    private MagicWand magicWand;
+    private PowerFist powerFist;
+    private GoodBread goodBread;
     private MoldyBread moldyBread;
 
     /** @param scanner used to read player input during combat */
     public BattleSystem(Scanner scanner) {
         this.currentTurn = 0;
-        this.random      = new Random();
-        this.actionMenu  = new ActionMenu(scanner);
+        this.random = new Random();
+        this.actionMenu = new ActionMenu(scanner);
 
-        ironSword  = new Sword("Iron Sword", 18, "A sturdy iron blade.", 0.10);
-        magicWand  = new MagicWand("Magic Wand", 22, 15, 10, "Channels arcane energy.");
-        powerFist  = new PowerFist("Power Fist", 25, "A gauntlet that hits hard.");
-        goodBread  = new GoodBread(2);
+        ironSword = new Sword("Iron Sword", 18, "A sturdy iron blade.", 0.10);
+        magicWand = new MagicWand("Magic Wand", 22, 15, 10, "Channels arcane energy.");
+        powerFist = new PowerFist("Power Fist", 25, "A gauntlet that hits hard.");
+        goodBread = new GoodBread(2);
         moldyBread = new MoldyBread(3);
     }
 
