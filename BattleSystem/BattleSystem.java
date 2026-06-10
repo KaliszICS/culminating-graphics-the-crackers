@@ -234,16 +234,24 @@ public class BattleSystem {
 
         }
 
-        /** @param mp new MP value; floored at 0 */
-        public void setMP(int mp) { this.MP = Math.max(0, mp); }
+        /** @param mp new MP value; below at 0 
+         * 
+        */
+        public void setMP(int mp) { 
+            this.MP = Math.max(0, mp); 
+        }
 
-        /** Prints {@code <name> | HP: current/max | MP: current/max} to the console. */
+        /** Prints | HP: current/max | MP: current/max} to the system. 
+         * 
+        */
         public void printStatus() {
             System.out.println("  " + name + " | HP: " + HP + "/" + maxHP + " | MP: " + MP + "/" + maxMP);
         }
     }
 
-    /** Represents the enemy boss with a type, signature attack, and combat stats. */
+    /** 
+     * Represents the enemy boss with a type, signature attack, and combat stats. 
+    */
     class Boss {
         private String name;
         private String bossType;
@@ -253,9 +261,9 @@ public class BattleSystem {
 
         /**
          * @param name        boss display name
-         * @param bossType    archetype (e.g. "Dragon", "Undead")
+         * @param bossType    like plains,cave,underworld archtypes
          * @param attack      name of the boss's signature attack
-         * @param description flavour text
+         * @param description long/short text of item
          * @param HP          starting (and maximum) HP
          * @param attackPower damage dealt per attack
          */
@@ -269,41 +277,81 @@ public class BattleSystem {
             this.attackPower = attackPower;
         }
 
-        /** @param amount damage taken; HP is floored at 0 */
-        public void takeDamage(int amount) { HP = Math.max(0, HP - amount); }
+        /** @param amount damage taken; HP is floored at 0 
+         * 
+        */
+        public void takeDamage(int amount) { 
+            HP = Math.max(0, HP - amount); 
+        }
 
-        /** @return {@code true} if HP > 0 */
-        public boolean isAlive() { return HP > 0; }
+        /** @return {@code true} if HP > 0 
+         * 
+        */
+        public boolean isAlive() { 
+            return HP > 0; 
 
-        /** @return boss's name */
-        public String getName() { return name; }
+        }
 
-        /** @return boss archetype */
-        public String getBossType() { return bossType; }
+        /** @return boss's name 
+         * 
+        */
+        public String getName() { 
+            return name; 
+        }
 
-        /** @return signature attack name */
-        public String getAttack() { return attack; }
+        /** @return boss archetype 
+         * 
+        */
+        public String getBossType() { 
+            return bossType; 
+        }
 
-        /** @return flavour text description */
-        public String getDescription() { return description; }
+        /** @return signature attack name 
+         * 
+        */
+        public String getAttack() { 
+            return attack; 
 
-        /** @return damage dealt per attack */
-        public int getAttackPower() { return attackPower; }
+        }
 
-        /** @return current HP */
-        public int getHP() { return HP; }
+        /** @return flavour text description 
+         * 
+        */
+        public String getDescription() {
+             return description; 
+            }
 
-        /** Prints {@code <name> | HP: current/max} to the console. */
+        /** @return damage dealt per attack 
+         * 
+        */
+        public int getAttackPower() { 
+            return attackPower; 
+        }
+
+        /** @return current HP 
+         * 
+        */
+        public int getHP() { 
+            return HP; 
+        }
+
+        /** Prints| HP: current/max} to the console. 
+         * 
+        */
         public void printStatus() {
             System.out.println("  " + name + " | HP: " + HP + "/" + maxHP);
         }
     }
 
-    /** Handles player input during combat, presenting menus and validating choices. */
+    /** Handles player input during combat, presenting menus and validating choices. 
+     * 
+    */
     class ActionMenu {
         private Scanner scanner;
 
-        /** @param scanner Scanner to read player input from */
+        /** @param scanner Scanner to read player input from 
+         * 
+        */
         public ActionMenu(Scanner scanner) {
             this.scanner = scanner;
         }
