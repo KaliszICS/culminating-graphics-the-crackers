@@ -1,5 +1,9 @@
 package CharacterSystem;
 
+import Graphics.ViewManager;
+import MapSystem.GameMap;
+import MapSystem.MapData;
+
 public class Boss extends Character {
     private String attack;
     private String finisher;
@@ -13,27 +17,56 @@ public class Boss extends Character {
         this.bossType = bossType;
         this.isDefeated = false;
     }
+
     public void critHit(Character target) {
         int damage = getAttackDMG() * 2;
         target.takeDamage(damage);
          System.out.println(getName() + " uses " + attack + " for " + damage + " damage!");
     }
+
      public String getAttack() { 
         return attack; 
      }
+
      public String getFinisher() {
         return finisher;
      }
+
     public String getBossType() { 
         return bossType; 
     }
+
     public boolean isDefeated() { 
         return isDefeated; 
     }
+
     public void setDefeated(boolean defeated) { 
         isDefeated = defeated; 
     }
 
+    public void defeat(GameMap map){
+        switch(bossType){
+            case "plains":
+                map.setGrid(MapData.CAVES_GRID);
+                map.setInteractables(MapData.caveInteractables);
+                map.setPlayerPos((new int[]{4,7}));
+                map.updateMap();
+
+                ViewManager.openMap();
+                break;
+            case "cave":
+                map.setGrid(MapData.UNDERWORLD_GRID);
+                map.setInteractables(MapData.underworldInteractables);
+                map.setPlayerPos((new int[]{0,4}));
+                map.updateMap();
+
+                ViewManager.openMap();
+                break;
+            case "underworld":
+                ViewManager.openMap();
+                break;
+        }
+    }
 
     @Override
     public void displayStats() {

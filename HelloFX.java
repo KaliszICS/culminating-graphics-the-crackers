@@ -38,6 +38,7 @@ public class HelloFX extends Application {
 
         stage.setResizable(false); //sorry, but i physically CAN'T get the scenes to stay centered when resized, also noVNC still has the maximize button, whyyy
         stage.setScene(scene);
+        stage.setTitle("Epicness game");
         stage.show();
         
         scene.setOnKeyPressed(event -> {

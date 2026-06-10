@@ -156,7 +156,7 @@ public class BossController {
         player.takeDamage((int) (boss.getAttackDMG()*xDamage));
         
         if(player.getCurrentMP() < 100){
-            player.setCurrentMP(player.getCurrentMP() + 20);//Set mana regen here ig
+            player.setCurrentMP(player.getCurrentMP() + Math.min(20,100-player.getCurrentMP()));//Set mana regen here ig
         }
 
         xDamage = 1;
@@ -164,6 +164,13 @@ public class BossController {
 
         if(player.getCurrentHP() <= 0){
             ViewManager.getScene().setRoot(new StackPane(new Label("Dead (uh oh, not enough budget for a real game over screen)")));
+        }
+
+        if(boss.getCurrentHP() <= 0){
+            map.setCanMove(true);
+            map.removeInteractable(mapBoss);
+            boss.defeat(map);
+            map.updateMap();
         }
     }
 
