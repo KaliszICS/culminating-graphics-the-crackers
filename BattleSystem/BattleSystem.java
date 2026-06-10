@@ -23,7 +23,9 @@ abstract class Item {
         this.quantity = quantity;
     }
 
-    public String getName() { return name; }
+    public String getName() { 
+        return name; 
+    }
 }
 
 class Sword extends Item {
@@ -237,7 +239,5 @@ class ActionMenu {
 
 }
 
-/** Manages turn-based combat between a Player and a Boss. 
- * @param <fixed>*/
 
 

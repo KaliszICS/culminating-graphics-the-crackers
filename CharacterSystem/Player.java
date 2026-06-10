@@ -3,6 +3,7 @@ import ItemSystem.Inventory;
 /**
  * represent player character in rpg
  * extends from character functionality like attacking bosses
+ * @author Jason Wu
  */
 
 public class Player extends Character {

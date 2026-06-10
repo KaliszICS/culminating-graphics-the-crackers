@@ -3,6 +3,7 @@ package CharacterSystem;
 /**
 * Represents a character in the RPG game.
  * All game entities (Player, Boss) extend this class.
+ * @author Jason Wu
  */
     public class Character {
     private String name;        //display character name
