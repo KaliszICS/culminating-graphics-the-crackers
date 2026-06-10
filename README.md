@@ -54,6 +54,7 @@ This project provides a minimal JavaFX application that runs entirely within Git
 
 This project is licensed under the [MIT License](LICENSE).
 
+Turn-Based RPG
 
 Controls: WASD or Left:⬅️, Up:⬆️, Right:➡️, Down: ⬇️
 
