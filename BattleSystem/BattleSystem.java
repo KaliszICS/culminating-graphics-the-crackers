@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @param <GoodBread>
  * @param <MoldyBread>
  * @param <ActionMenu>*
- * @author Adhiraj
+ * @author Adhiraj Singh
  */
     public class BattleSystem {
 
