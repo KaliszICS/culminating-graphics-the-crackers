@@ -22,6 +22,11 @@ import javafx.scene.layout.StackPane;
 
 //Sadly this is going to have to be where all the battle stuff is because the battle system is wraps
 
+/**
+ * FXML controller for the boss gui, also handles the boss gui because no time
+ * @author Eric Chen
+ * @version v7.7.67
+ */
 public class BossController {
     private Player player;
     private Boss boss;

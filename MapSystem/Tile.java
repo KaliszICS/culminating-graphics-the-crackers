@@ -2,6 +2,12 @@ package MapSystem;
 
 import javafx.scene.image.Image;
 
+/**
+ * Basic tile class for GameMap
+ * @author Eric Chen
+ * @version v67
+ */
+
 public class Tile {
     private Image sprite;
     private boolean isCollidable;

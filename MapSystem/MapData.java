@@ -22,7 +22,7 @@ public class MapData {
     private static Tile tree = new Tile(new Image("Resources/Sprites/Tree.png",45.0 , 45.0, true, false), true);
 
     private static Interactable[] temp = new Interactable[]{
-        new Door("Door", new int[]{0,5}, "a", new ImageView(new Image("/Resources/Sprites/DoorSmall.png",40,40,true,false))),
+        new Door("Door", new int[]{0,5}, "moldy bread is KING", new ImageView(new Image("/Resources/Sprites/DoorSmall.png",40,40,true,false))),
         new MapBoss("Boss", new int[]{4,1}, new PlainsBoss(), new ImageView(new Image("/Resources/Sprites/greenBoss.png",40,40,true,false))),
         new MapMagicWand("Wand", new int[]{0,0}, new ImageView(new Image("/Resources/Sprites/MagicWand.png",40,40,true,false))),
         new Chest("Chest", new int[]{9,0}, new Item[]{

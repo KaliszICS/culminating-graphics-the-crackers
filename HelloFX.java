@@ -1,7 +1,6 @@
 
 import CharacterSystem.Player;
 import Graphics.ViewManager;
-import ItemSystem.Item;
 import MapSystem.GameMap;
 import MapSystem.MapData;
 import javafx.application.Application;

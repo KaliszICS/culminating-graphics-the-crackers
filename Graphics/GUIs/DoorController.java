@@ -7,6 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+/**
+ * FXML controller for door gui
+ * @author Eric Chen
+ * @version 0.0.7.7.7 (CASH MONEY :moneyeyes:)
+ */
 public class DoorController {
     private GameMap map;
     private Door door;
