@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
-
 
 /** Manages turn-based combat between a Player and a Boss. 
  * @param <Sword>
