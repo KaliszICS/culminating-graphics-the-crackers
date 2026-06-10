@@ -13,6 +13,9 @@ public class Item {
         //this.quantity = quantity;
     }
 
+    /**
+     * Methods that returns the name of the item
+     */
     @Override
     public String toString(){
         return this.name;

@@ -2,6 +2,13 @@ package ItemSystem;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+     * Class for the inventory
+     * @author Dorian Goobie
+     * @param inv
+     * @param i
+     */
+
 public class Inventory {
     private ArrayList<Item> inv;
 
@@ -18,7 +25,9 @@ public class Inventory {
         return this.inv.contains(i);
     }
 
-    //Methods
+    /**
+     * Methods for if the player wants to use, remove, or add an item to the inventory
+     */
     public void consume(Item item){
         this.inv.remove(item);
     }
@@ -31,6 +40,10 @@ public class Inventory {
         this.inv.add(item);
     }
 
+    /**
+     * Method that searches for an item in the player's inventory
+     */
+    
     public static void InventorySearch(String[] Inventory, String item){
         Scanner input = new Scanner(System.in);
         System.out.println("Which item would you like to use?");

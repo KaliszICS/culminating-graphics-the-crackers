@@ -1,5 +1,12 @@
 package ItemSystem;
 
+    /**
+     * Class for attack items
+     * @author Dorian Goobie
+     * @param Damage
+     * @param name
+     */
+
 public class AttackItem extends Item {
 
     protected int Damage;
@@ -8,6 +15,10 @@ public class AttackItem extends Item {
     public AttackItem(String name){
         super(name);
     }
+    
+    /**
+     * Methods describing the name and damage of the item
+     */
     
     public String Item(String name){
         super.name = name;
