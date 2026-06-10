@@ -56,10 +56,10 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Jobs
 
-Dorian: Maps, Items, Inventory
-Eric: Graphics, Debugging, Map controls
-Jason: Save system, Characters, Battle System
-Adhiraj: Battle System
+ Dorian: Maps, Items, Inventory ||
+ Eric: Graphics, Debugging, Map controls ||
+ Jason: Save system, Characters, Battle System ||
+ Adhiraj: Battle System ||
 
 ## Password Hint
 
