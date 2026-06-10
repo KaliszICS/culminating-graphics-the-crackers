@@ -1,18 +1,32 @@
 package SaveManager;
+/**
+ * represent save file data structure
+ * stores all ingame data including player and boss progress
+ * can be serialize to string and deserialize
+ * @author Jason Wu
+ */
 public class SaveData {
 
     // Player stats
-    public int playerHP;
-    public int playerMP;
+    public int playerHP;    // player current hp
+    public int playerMP;    // player current mp
 
     // Boss stats at time of save (if not defeated)
-    public int plainsBossHP;
-    public int caveBossHP;
-    public int underworldBossHP;
+    public int plainsBossHP; //remaining hp of plains boss
+    public int caveBossHP;  //remaining hp of cave boss
+    public int underworldBossHP;    //remaining hp of underworld
 
     // Map explore
     public String currentMapArea; // "plains", "caves", "underworld"
-
+/**
+ * constructor for savedata
+ * @param playerHP player current hp
+ * @param playerMP player current mp
+ * @param plainsBossHP  plains boss hp
+ * @param caveBossHP     cave boss hp
+ * @param underworldBossHP  underworld boss hp
+ * @param currentMapArea    current map area
+ */
     //Constructor
     public SaveData(int playerHP, int playerMP, int plainsBossHP, int caveBossHP, int underworldBossHP, String currentMapArea) {
         this.playerHP = playerHP;
@@ -22,7 +36,10 @@ public class SaveData {
         this.underworldBossHP = underworldBossHP;
         this.currentMapArea = currentMapArea;
     }
-
+/**
+ * converts saveeData for string to file storage
+ * @return string for savedata
+ */
     //Converts saveData
     public String serialize() {
         return playerHP + ","
@@ -32,7 +49,11 @@ public class SaveData {
              + underworldBossHP + ","
              + currentMapArea;
     }
-
+/**
+ * creates savedata from serialize string
+ * @param saveString to save file
+ * @param saveData object null
+*/
     public static SaveData deserialize(String saveString) {
         String[] parts = saveString.split(",");
         
@@ -53,7 +74,10 @@ public class SaveData {
             return null;
         }
     }
-    
+/**
+ * displays all save data information to console
+ * used for debugging
+ */
         // Display save info
     public void displayInfo() {
         System.out.println("=== SAVE DATA ===");

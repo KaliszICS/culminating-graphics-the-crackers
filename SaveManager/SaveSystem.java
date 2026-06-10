@@ -5,8 +5,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/**
+ * handles file i/o operations for saving and loading game data
+ * manages savefile, serialize and deserialize
+ * @author Jason Wu
+ */
 public class SaveSystem {
+    /**
+     * Saves game data to a file.
+     * Converts SaveData to string format.
+     * 
+     * @param data     The SaveData object to save
+     * @param filename The file path to save
+     */
+
     public void saveGame(SaveData data, String filename) {
         try(FileWriter writer = new FileWriter(filename)) {
             writer.write(data.serialize());
@@ -15,6 +27,13 @@ public class SaveSystem {
             System.out.println("Error saving game: " + e.getMessage());
         }
     }
+ /**
+     * Loads game data from a save file.
+     * Reads the file, parses the string, and reconstructs SaveData.
+     * 
+     * @param filename The file path to load from
+     * @return SaveData object if successful, null if file doesn't exist or is corrupted
+     */
 
 public SaveData loadGame(String filename) {
         File file = new File(filename);
@@ -40,12 +59,23 @@ public SaveData loadGame(String filename) {
             return null;
         }
     }
+  /**
+     * Checks if a save file exists at the specified path.
+     * 
+     * @param filename The file path to check
+     * @return true if file exists, false if not
+     */
 
     // Check if save file exists
     public boolean saveExists(String filename) {
         File file = new File(filename);
         return file.exists();
     }
+ /**
+     * Deletes the save file at the specified path.
+     * 
+     * @param filename The file path to delete
+     */
 
     // Delete save file
     public void deleteSave(String filename) {
@@ -60,6 +90,12 @@ public SaveData loadGame(String filename) {
             System.out.println("No save file to delete");
         }
     }
+ /**
+     * Displays save file information without loading the game.
+     * Useful for save.
+     * 
+     * @param filename The file path to display info for
+     */
 
     public void displaySaveInfo(String filename) {
         SaveData data = loadGame(filename);
@@ -69,8 +105,8 @@ public SaveData loadGame(String filename) {
             System.out.println("No valid save data to display");
         }
     }
-
-    //esting/debugging
+    
+    //testing/debugging
     public static void main(String[] args) {
     SaveSystem ss = new SaveSystem();
     String file = "test.txt";
