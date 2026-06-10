@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Graphics.GUIs.BossController">
    <children>
       <AnchorPane prefHeight="480.0" prefWidth="640.0" StackPane.alignment="CENTER">
@@ -37,12 +36,17 @@
                   <Button fx:id="invButton" layoutX="428.0" layoutY="36.0" mnemonicParsing="false" onAction="#openInv" prefHeight="114.0" prefWidth="123.0" text="Inventory" />
                </children>
             </AnchorPane>
-            <Label fx:id="playerHP" layoutX="69.0" layoutY="125.0" prefHeight="33.0" prefWidth="77.0" text="PlrHP">
+            <Label fx:id="playerHP" layoutX="62.0" layoutY="128.0" prefHeight="35.0" prefWidth="192.0" text="PlrHP" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="bossHP" layoutX="455.0" layoutY="14.0" prefHeight="35.0" prefWidth="105.0" text="BossHP">
+            <Label fx:id="bossHP" layoutX="412.0" layoutY="12.0" prefHeight="35.0" prefWidth="192.0" text="BossHP" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerMP" layoutX="66.0" layoutY="298.0" prefHeight="35.0" prefWidth="184.0" text="PlrMP" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>

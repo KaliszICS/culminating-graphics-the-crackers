@@ -2,8 +2,8 @@ package MapSystem;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import CharacterSystem.Player;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -25,10 +25,11 @@ public class GameMap {
     private int[] playerPos;
     private ArrayList<Interactable> interactables;
     private boolean canMove = true;
+    private Player player;
     GridPane mapGrid = new GridPane();
     StackPane mapRoot = new StackPane(mapGrid);
 
-    public GameMap(Tile[][] grid, int[] playerStartPos){
+    public GameMap(Tile[][] grid, int[] playerStartPos, Player player){
         this.grid = grid;
         this.playerPos = playerStartPos;
         interactables = new ArrayList<>();
@@ -36,10 +37,11 @@ public class GameMap {
         initMap(mapGrid);
     }
 
-    public GameMap(Tile[][] grid, int[] playerStartPos, ArrayList<Interactable> interactables){
+    public GameMap(Tile[][] grid, int[] playerStartPos, Player player,ArrayList<Interactable> interactables){
         this.grid = grid;
         this.playerPos = playerStartPos;
         this.interactables = interactables;
+        this.player = player;
 
         initMap(mapGrid);
     }
@@ -53,6 +55,10 @@ public class GameMap {
         return this.playerPos;
     }
 
+    public Player getPlayer(){
+        return this.player;
+    }
+
     //Setters
     public void setGrid(Tile[][] grid){
         this.grid = grid;
@@ -60,6 +66,10 @@ public class GameMap {
 
     public void setPlayerPos(int[] playerPos){
         this.playerPos = playerPos;
+    }
+
+    public void setPlayer(Player player){
+        this.player = player;
     }
 
     public void setCanMove(boolean canMove){
@@ -149,7 +159,7 @@ public class GameMap {
     }
 
     //MAP GRAPHICS
-    StackPane player = new StackPane(new ImageView(new Image("/Resources/Sprites/PlayerSmall.png",20,20,true,false))); //change this when we have like a player singleton or something
+    StackPane playerIcon = new StackPane(new ImageView(new Image("/Resources/Sprites/PlayerSmall.png",20,20,true,false))); //change this when we have like a player singleton or something
 
     public void initMap(GridPane map){
         map.setAlignment(Pos.CENTER);
@@ -169,7 +179,7 @@ public class GameMap {
             }
         } //crap bro, nodes longer than the tile sprites elongate the grid leaving gaps
 
-        mapGrid.add(player,playerPos[0],playerPos[1]);
+        mapGrid.add(playerIcon,playerPos[0],playerPos[1]);
 
         for(Interactable i : interactables){
             mapGrid.add(i.getArt(), i.getPos()[0], i.getPos()[1]); //I really should separate updating entities and updating the map, but whatever

@@ -1,9 +1,13 @@
 package CharacterSystem;
+import ItemSystem.Inventory;
 /**
  * represent player character in rpg
  * extends from character functionality like attacking bosses
  */
+
 public class Player extends Character {
+    Inventory inventory;
+
     /**
      * Constructor a player
      * @param name  players name
@@ -14,7 +18,9 @@ public class Player extends Character {
      */
     public Player(String name, int currentHP, int currentMP, int Heal, int attackDMG) {
         super(name, currentHP, currentMP, Heal, attackDMG);
+        inventory = new Inventory();
     }
+
     /**
      * players attacks boss
      * deals dmg equal to attackDMG to the boss
@@ -24,6 +30,7 @@ public class Player extends Character {
         boss.takeDamage(getAttackDMG());
         System.out.println(getName() + " attack for " + getAttackDMG() + "damage!");
     }
+
     /**
      * displays players stats
      * overrides parent method to "PLAYER:"
@@ -35,6 +42,14 @@ public class Player extends Character {
         System.out.println("MP: " + getCurrentMP());
         System.out.println("Heal: " + getHeal());
         System.out.println("Attack: " + getAttackDMG());
+    }
+
+    /**
+     * returns inventory
+     * @return this player's inventory
+     */
+    public Inventory getInventory(){
+        return this.inventory;
     }
 
 }

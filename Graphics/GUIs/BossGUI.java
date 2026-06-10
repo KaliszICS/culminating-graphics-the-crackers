@@ -1,7 +1,7 @@
 package Graphics.GUIs;
 
 import MapSystem.GameMap;
-import MapSystem.Interactables.Boss.Boss;
+import MapSystem.Interactables.Boss.MapBoss;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -25,10 +25,12 @@ public class BossGUI {
         return this.root;
     }
 
-    public void open(Boss boss, GameMap map){
+    public void open(MapBoss boss, GameMap map){
         map.setCanMove(false);
-        controller.setBoss(boss);
+
+        controller.setMapBoss(boss);
         controller.setMap(map);
-        controller.closeInv();
+        
+        controller.init();
     }
 }

@@ -4,7 +4,8 @@ package MapSystem;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import MapSystem.Interactables.Boss.Boss;
+import CharacterSystem.PlainsBoss;
+import MapSystem.Interactables.Boss.MapBoss;
 import MapSystem.Interactables.Door.Door;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,11 +17,11 @@ public class MapData {
 
     private static Interactable[] temp = new Interactable[]{
         new Door("Door", new int[]{0,5}, "a", new ImageView(new Image("/Resources/Sprites/DoorSmall.png",40,40,true,false))),
-        new Boss("Boss", new int[]{4,1}, new Label("boss")),
+        new MapBoss("Boss", new int[]{4,1}, new PlainsBoss(), new Label("boss")),
     };
-    private static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
+    public static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
 
-    private static Tile[][] GRASSLANDS_GRID = new Tile[][]{
+    public static Tile[][] GRASSLANDS_GRID = new Tile[][]{
         {gras,gras,gras,gras,gras,gras,gras,gras,gras,gras,},
         {gras,gras,tree,tree,gras,tree,gras,gras,gras,gras,},
         {gras,tree,gras,gras,tree,tree,gras,gras,gras,gras,},
@@ -32,7 +33,4 @@ public class MapData {
         {gras,gras,gras,gras,gras,gras,gras,gras,gras,gras,},
         {gras,gras,gras,gras,gras,gras,gras,gras,gras,gras,},
     }; //THE MAP IS COMPLETELY FLIPPED DIAGONALLY FRICK ME BRRR
-
-    public static GameMap GRASSLANDS = new GameMap(GRASSLANDS_GRID, new int[]{5,8}, grasInteractables);
-
 }

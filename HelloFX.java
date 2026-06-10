@@ -1,5 +1,7 @@
 
+import CharacterSystem.Player;
 import Graphics.ViewManager;
+import ItemSystem.Item;
 import MapSystem.GameMap;
 import MapSystem.MapData;
 import javafx.application.Application;
@@ -10,10 +12,13 @@ import javafx.stage.Stage;
 
 public class HelloFX extends Application {
     public GameMap map;
+    public Player player;
 
     @Override
     public void start(Stage stage) {
-        map = MapData.GRASSLANDS;
+        player = new Player("Player", 1000, 100, 0, 500);
+
+        map = new GameMap(MapData.GRASSLANDS_GRID, new int[]{5,8}, player, MapData.grasInteractables);
         map.updateMap();
 
         Parent mapRoot = map.getRoot();
@@ -23,6 +28,13 @@ public class HelloFX extends Application {
         ViewManager.setMapRoot(mapRoot);
         ViewManager.setScene(scene);
         ViewManager.init();
+
+        player.getInventory().getItems().add(new Item("A"));
+        player.getInventory().getItems().add(new Item("AB"));
+        player.getInventory().getItems().add(new Item("ABC"));
+        player.getInventory().getItems().add(new Item("ABCD"));
+        player.getInventory().getItems().add(new Item("ABCDE"));
+        player.getInventory().getItems().add(new Item("ABCDEF"));
 
         stage.setResizable(false); //sorry, but i physically CAN'T get the scenes to stay centered when resized, also noVNC still has the maximize button, whyyy
         stage.setScene(scene);

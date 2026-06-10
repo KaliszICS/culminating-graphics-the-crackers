@@ -3,7 +3,7 @@ package Graphics;
 import Graphics.GUIs.BossGUI;
 import Graphics.GUIs.DoorGUI;
 import MapSystem.GameMap;
-import MapSystem.Interactables.Boss.Boss;
+import MapSystem.Interactables.Boss.MapBoss;
 import MapSystem.Interactables.Door.Door;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -56,7 +56,7 @@ public class ViewManager {
         scene.setRoot(mapRoot);
     }
 
-    public static void openBattle(Boss boss, GameMap map){
+    public static void openBattle(MapBoss boss, GameMap map){
         scene.setRoot(bossGUI.getRoot());
         bossGUI.open(boss, map);
     }

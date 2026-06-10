@@ -1,7 +1,14 @@
 package Graphics.GUIs;
 
+import java.beans.EventHandler;
+import java.util.ArrayList;
+
+import CharacterSystem.Boss;
+import CharacterSystem.Player;
+import ItemSystem.Inventory;
+import ItemSystem.Item;
 import MapSystem.GameMap;
-import MapSystem.Interactables.Boss.Boss;
+import MapSystem.Interactables.Boss.MapBoss;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,11 +16,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
+//Sadly this is going to have to be where all the battle stuff is because the battle system is wraps
+
 public class BossController {
-    private GameMap map;
+    private Player player;
     private Boss boss;
+    private Inventory inv;
+    private ArrayList<String> itemList;
+    private double xDamage = 1; //damage multiplier to be set when defending, should probably be a value of Player but whatever
+
+    private GameMap map;
+    private MapBoss mapBoss;
     
     @FXML
     private ImageView background;
@@ -37,6 +53,9 @@ public class BossController {
     private Label playerHP;
 
     @FXML
+    private Label playerMP;
+
+    @FXML
     private Label bossHP;
 
     @FXML
@@ -53,12 +72,14 @@ public class BossController {
 
     @FXML
     public void attack(ActionEvent e){
-
+        boss.takeDamage(player.getAttackDMG());
+        passTurn();
     }
 
     @FXML
     public void defend(ActionEvent e){
-
+        this.xDamage = 0.2;
+        passTurn();
     }
 
     @FXML
@@ -67,13 +88,19 @@ public class BossController {
     }
 
     @FXML
-    public void typed(ActionEvent e){
-
+    public void typed(KeyEvent e){
+        update();
     }
 
     @FXML
     public void tryUse(ActionEvent e){
+        String temp = invSearch.getText().toLowerCase();
 
+        for(Item i : inv.getItems()){
+            if(i.toString().equals(temp)){
+                i.use(player);
+            }
+        }
     }
 
     //actual methods
@@ -82,13 +109,52 @@ public class BossController {
         this.map = map;
     }
 
-    public void setBoss(Boss boss){
-        this.boss = boss;
+    public void setMapBoss(MapBoss boss){
+        this.mapBoss = boss;
     }
 
+    public void init(){
+        closeInv();
+
+        this.player = this.map.getPlayer();
+        this.boss = this.mapBoss.getBoss();
+        this.inv = player.getInventory();
+        this.itemList = new ArrayList<>();
+
+        update();
+    }
+
+    public void update(){
+        playerHP.setText("HP: " + Integer.toString(player.getCurrentHP()));
+        playerMP.setText("MP: " + Integer.toString(player.getCurrentMP()));
+
+        bossHP.setText("HP: " + Integer.toString(boss.getCurrentHP()));
+
+        itemList.clear();
+        inventoryList.getItems().clear();
+
+        for(Item i : inv.getItems()){
+            if(i.toString().toLowerCase().contains(invSearch.getText().toLowerCase())){
+                itemList.add(i.toString());
+            }
+        }
+
+        inventoryList.getItems().addAll(itemList);
+    }
 
     public void closeInv(){
         this.inventoryView.setVisible(false);
+    }
+
+    public void passTurn(){
+        player.takeDamage((int) (boss.getAttackDMG()*xDamage));
+        
+        if(player.getCurrentMP() < 100){
+            player.setCurrentMP(player.getCurrentMP() + 20);//Set mana regen here ig
+        }
+
+        xDamage = 1;
+        update();
     }
 
 }

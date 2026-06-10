@@ -43,10 +43,10 @@ public class Boss extends Character {
         System.out.println("Attack DMG: " + getAttackDMG());
     }
 
-Boss plainsBoss = new Boss("Green Square", "plains", "Square", "Watch Out For That Tree!", 1000, 50);
+    //Boss plainsBoss = new Boss("Green Square", "plains", "Square", "Watch Out For That Tree!", 1000, 50);
 
-Boss caveBoss = new Boss("Blue Square", "cave", "Square", "Rocky Road", 2500, 100);
+    //Boss caveBoss = new Boss("Blue Square", "cave", "Square", "Rocky Road", 2500, 100);
 
-Boss underworldBoss = new Boss("Red Square", "underworld", "Square", "Satanic Star", 300, 666);
+    //Boss underworldBoss = new Boss("Red Square", "underworld", "Square", "Satanic Star", 300, 666);
 }
 
