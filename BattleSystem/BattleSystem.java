@@ -123,7 +123,9 @@ public class BattleSystem {
             this.damage = damage;
         }
 
-        /** @return base damage */
+        /** 
+         * @return base damage 
+        */
         public int getDamage() { return damage; }
     }
 
@@ -142,7 +144,9 @@ public class BattleSystem {
             super(name, description, quantity);
         }
 
-        /** @return HP restored on use */
+        /** 
+         * @return HP restored on use 
+        */
         public int getHeal() { return heal; }
     }
 
@@ -150,20 +154,22 @@ public class BattleSystem {
      * bread that restores 30 HP. 
     */
     class GoodBread extends Bread {
-        /** @param quantity starting quantity */
+        /** 
+         * @param quantity starting quantity 
+        */
         public GoodBread(int quantity) {
             super("Good Bread", "Restores 30 HP.", quantity);
             this.heal = 30;
         }
     }
 
-    /** moldy bread that restores 10 HP. 
-     * 
+    /** 
+     * moldy bread that restores 10 HP. 
     */
     class MoldyBread extends Bread {
         /** 
          * @param quantity starting quantity 
-         * */
+         */
         public MoldyBread(int quantity) {
             super("Moldy Bread", "Restores 10 HP.", quantity);
             this.heal = 10;
@@ -198,51 +204,53 @@ public class BattleSystem {
             HP = Math.max(0, HP - amount); 
         }
 
-        /** @param amount HP restored; capped at maxHP 
-         * 
+        /** 
+         * @param amount HP restored; capped at maxHP 
         */
+
         public void heal(int amount) { 
             HP = Math.min(maxHP, HP + amount); 
         }
 
-        /** @return {@code true} if HP > 0 
+        /** 
+         * @return true if HP > 0 
          * 
         */
         public boolean isAlive() { 
             return HP > 0; 
         }
 
-        /** @return player's name 
-         * 
+        /** 
+         * @return player's name 
         */
         public String getName() { 
             return name; 
         }
 
-        /** @return current HP 
-         * 
+        /** 
+         * @return current HP 
         */
         public int getHP() { 
             return HP; 
         }
 
-        /** @return current MP 
-         * 
+        /**
+         *  @return current MP 
         */
         public int getMP() { 
             return MP; 
 
         }
 
-        /** @param mp new MP value; below at 0 
+        /** @param mp new MP value, below at 0 
          * 
         */
         public void setMP(int mp) { 
             this.MP = Math.max(0, mp); 
         }
 
-        /** Prints | HP: current/max | MP: current/max} to the system. 
-         * 
+        /** 
+         * Prints | HP: current/max | MP: current/max} to the system. 
         */
         public void printStatus() {
             System.out.println("  " + name + " | HP: " + HP + "/" + maxHP + " | MP: " + MP + "/" + maxMP);
@@ -277,80 +285,80 @@ public class BattleSystem {
             this.attackPower = attackPower;
         }
 
-        /** @param amount damage taken; HP is floored at 0 
-         * 
+        /** 
+         * @param amount damage taken; HP is floored at 0 
         */
         public void takeDamage(int amount) { 
             HP = Math.max(0, HP - amount); 
         }
 
-        /** @return {@code true} if HP > 0 
-         * 
+        /**
+         *  @return true if HP > 0 
         */
         public boolean isAlive() { 
             return HP > 0; 
 
         }
 
-        /** @return boss's name 
-         * 
+        /** 
+         * @return boss's name 
         */
         public String getName() { 
             return name; 
         }
 
-        /** @return boss archetype 
-         * 
+        /** @return 
+         * boss archetype 
         */
         public String getBossType() { 
             return bossType; 
         }
 
-        /** @return signature attack name 
-         * 
+        /**
+         *  @return signature attack name 
         */
         public String getAttack() { 
             return attack; 
 
         }
 
-        /** @return flavour text description 
-         * 
+        /** 
+         * @return text description 
         */
         public String getDescription() {
              return description; 
             }
 
-        /** @return damage dealt per attack 
-         * 
+        /** 
+         * @return damage dealt per attack 
         */
         public int getAttackPower() { 
             return attackPower; 
         }
 
-        /** @return current HP 
-         * 
+        /** 
+         * @return current HP 
         */
         public int getHP() { 
             return HP; 
         }
 
-        /** Prints| HP: current/max} to the console. 
-         * 
+        /** 
+         * Prints| HP: current/max to the console. 
         */
         public void printStatus() {
             System.out.println("  " + name + " | HP: " + HP + "/" + maxHP);
         }
     }
 
-    /** Handles player input during combat, presenting menus and validating choices. 
-     * 
+    /** 
+     * Handles player input during combat, presenting menus and validating choices. 
     */
     class ActionMenu {
         private Scanner scanner;
 
-        /** @param scanner Scanner to read player input from 
-         * 
+        /** 
+         * @param scanner Scanner to read player input from 
         */
         public ActionMenu(Scanner scanner) {
             this.scanner = scanner;
