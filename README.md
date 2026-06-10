@@ -60,3 +60,7 @@ Dorian: Maps, Items, Inventory
 Eric: Graphics, Debugging, Map controls
 Jason: Save system, Characters, Battle System
 Adhiraj: Battle System
+
+## Password Hint
+
+moldy bread is KING
