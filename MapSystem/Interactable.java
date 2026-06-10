@@ -14,12 +14,18 @@ public class Interactable {
     protected int[] position;
     protected Node art; //LABEL FOR PLACEHOLDER, CHANGE FOR REAL SPRITE
 
+    /**
+     * Constructor for Interactable object
+     * @param name name/default art of interactable
+     * @param pos position on map (this system sucks I know)
+     */
     public Interactable(String name, int[] pos){
         this.name = name;
         this.art = new Label(name);
         this.position = pos;
     }
 
+    //Interactable constructor with set art sprite
     public Interactable(String name,int[] pos, Node art){
         this.name = name;
         this.art = art;

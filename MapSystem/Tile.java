@@ -12,6 +12,11 @@ public class Tile {
     private Image sprite;
     private boolean isCollidable;
 
+    /**
+     * Constructor for generic game Tile
+     * @param sprite
+     * @param isCollidable whether or not the player can move onto this tile
+     */
     public Tile(Image sprite, boolean isCollidable){
         this.sprite = sprite;
         this.isCollidable = isCollidable;

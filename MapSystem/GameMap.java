@@ -29,6 +29,12 @@ public class GameMap {
     GridPane mapGrid = new GridPane();
     StackPane mapRoot = new StackPane(mapGrid);
 
+    /**
+     * Instantite GameMap object
+     * @param grid 2d array of game tiles
+     * @param playerStartPos player's position on map
+     * @param player pointer to player object
+     */
     public GameMap(Tile[][] grid, int[] playerStartPos, Player player){
         this.grid = grid;
         this.playerPos = playerStartPos;
@@ -36,7 +42,8 @@ public class GameMap {
 
         initMap(mapGrid);
     }
-
+    
+    //GameMap contstructor with with a set art node
     public GameMap(Tile[][] grid, int[] playerStartPos, Player player,ArrayList<Interactable> interactables){
         this.grid = grid;
         this.playerPos = playerStartPos;
