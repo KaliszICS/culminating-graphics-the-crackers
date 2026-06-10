@@ -1,12 +1,4 @@
 import java.util.Scanner;
-
-import BattleSystem.BattleSystem.ActionMenu;
-import BattleSystem.BattleSystem.GoodBread;
-import BattleSystem.BattleSystem.MagicWand;
-import BattleSystem.BattleSystem.MoldyBread;
-import BattleSystem.BattleSystem.PowerFist;
-import BattleSystem.BattleSystem.Sword;
-
 import java.util.Random;
 
 
@@ -18,8 +10,7 @@ import java.util.Random;
  * @param <MoldyBread>
  * @param <ActionMenu>*
  */
-public class BattleSystem<ActionMenu, Sword, MagicWand, PowerFist, GoodBread, MoldyBread> {
-
+    public class BattleSystem {
 
 abstract class Item {
     protected String name;
@@ -159,15 +150,20 @@ class Player {
 
 class Boss {
     private String name;
-    private int HP, maxHP, attackPower;
+        private String bossType;    
+        private String attack;      
+        private String description; 
+        private int HP, maxHP, attackPower;
 
-    public Boss(String name, int HP, int attackPower) {
-        this.name = name;
-        this.HP = HP;
-        this.maxHP = HP;
-        this.attackPower = attackPower;
-    }
-
+   public Boss(String name, String bossType, String attack, String description, int HP, int attackPower) {
+            this.name = name;
+            this.bossType = bossType;
+            this.attack = attack;
+            this.description = description;
+            this.HP = HP;
+            this.maxHP = HP;
+            this.attackPower = attackPower;
+        }
     public void takeDamage(int amount) {
          HP = Math.max(0, HP - amount); 
         }
@@ -179,9 +175,21 @@ class Boss {
     public String getName() {
          return name; 
         }
-
-    public int getAttackPower() {
-         return attackPower; 
+        public String getBossType() { 
+            return bossType; 
+        }
+        public String getAttack() {
+             return attack; 
+            }
+        public String getDescription() {
+             return description; 
+            }
+        
+        public int getAttackPower() {
+             return attackPower; 
+            }
+        public int getHP() { 
+            return HP; 
         }
 
     public void printStatus() {
@@ -227,154 +235,9 @@ class ActionMenu {
     }
 }
 
-
+}
 
 /** Manages turn-based combat between a Player and a Boss. 
  * @param <fixed>*/
 
-public class TurnSystem {
 
-    private int currentTurn;
-    private Random random;
-    private ActionMenu actionMenu;
-
-    private Sword ironSword;
-    private MagicWand magicWand;
-    private PowerFist powerFist;
-    private GoodBread goodBread;
-    private MoldyBread moldyBread;
-
-    /** @param scanner used to read player input during combat */
-    public TurnSystem(Scanner scanner) {
-        this.currentTurn = 0;
-        this.random = new Random();
-        this.actionMenu = new ActionMenu(scanner);
-
-        ironSword = new Sword("Iron Sword", 18, "A sturdy iron blade.", 0.10);
-        magicWand = new MagicWand("Magic Wand", 22, 15, 10, "Channels arcane energy.");
-        powerFist = new PowerFist("Power Fist", 25, "A gauntlet that hits hard.");
-        goodBread = new GoodBread(2);
-        moldyBread = new MoldyBread(3);
-    }
-
-    /** Increments the turn counter and prints both combatants' status. */
-    public void turnOrder(Player player, Boss boss) {
-        currentTurn++;
-        System.out.println("\n══════════════ TURN " + currentTurn + " ══════════════");
-        player.printStatus();
-        boss.printStatus();
-    }
-
-    /**
-     * Prompts the player to choose a weapon and returns the damage dealt.
-     * @return damage dealt to the boss
-     */
-    public int chooseAttack(Player player) {
-        int choice = actionMenu.chooseAttack(player);
-        int damage = 0;
-
-        switch (choice) {
-            case 1:
-                damage = ironSword.getDamage();
-                boolean crit = random.nextDouble() < ironSword.getCritChance();
-                if (crit) {
-                    damage = (int)(damage * 1.8);
-                    System.out.println("  Critical hit! " + ironSword.getName() + " deals " + damage + " damage!");
-                } else {
-                    System.out.println("  " + ironSword.getName() + " deals " + damage + " damage.");
-                }
-                break;
-
-            case 2:
-                damage = magicWand.getDamage();
-                player.setMP(player.getMP() - magicWand.getMpCost());
-                player.heal(magicWand.getHeal());
-                System.out.println("  " + magicWand.getName() + " deals " + damage
-                        + " damage and restores " + magicWand.getHeal() + " HP!");
-                break;
-
-            case 3:
-                damage = powerFist.getDamage();
-                System.out.println("  " + powerFist.getName() + " deals " + damage + " damage.");
-                break;
-
-            default:
-                System.out.println("  Invalid choice. Wasted turn.");
-        }
-        return damage;
-    }
-
-    /** Boss attacks the player with randomized damage. */
-    public void bossAttack(Player player, Boss boss) {
-        int variance = random.nextInt(7) - 3;
-        int damage   = Math.max(1, boss.getAttackPower() + variance);
-        player.takeDamage(damage);
-        System.out.println("  " + boss.getName() + " attacks for " + damage + " damage!");
-    }
-
-    /** Prompts the player to use a healing item and applies its effect. */
-    public void useItem(Player player) {
-        int choice = actionMenu.chooseItemType();
-        Bread item = null;
-
-        if (choice == 1)      item = goodBread;
-        else if (choice == 2) item = moldyBread;
-
-        if (item == null || item.quantity <= 0) {
-            System.out.println("  None left!");
-            return;
-        }
-
-        player.heal(item.getHeal());
-        item.quantity--;
-        System.out.println("  Used " + item.getName() + ". Restored " + item.getHeal()
-                + " HP. (" + item.quantity + " left)");
-    }
-
-    /** @return number of turns elapsed in this battle */
-    public int getCurrentTurn() {
-         return currentTurn; 
-        }
-
-    public void gameplay(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Player player = new Player("Hero", 100, 40);
-        TurnSystem battle = new TurnSystem(scanner);
-
-        Boss[] bosses = {
-            new Boss("Green Square", "plains", "Square", "Watch Out For That Tree!", 1000, 50);,
-            new Boss("Blue Square", 2500, 100),
-            new Boss("Red Square", 5000, 666)
-        };
-
-        for (Boss boss : bosses) {
-            System.out.println("\n  A wild " + boss.getName() + " appears!");
-
-            while (player.isAlive() && boss.isAlive()) {
-                battle.turnOrder(player, boss);
-                int action = battle.ActionMenu.chooseAction();
-
-                if (action == 1) {
-                    boss.takeDamage(battle.chooseAttack(player));
-                } else if (action == 2) {
-                    battle.useItem(player);
-                }
-
-                if (!boss.isAlive()) {
-                    System.out.println("  *** " + boss.getName() + " defeated! ***");
-                    break;
-                }
-                battle.bossAttack(player, boss);
-            }
-
-            if (!player.isAlive()) {
-                System.out.println("\n  GAME OVER");
-                scanner.close();
-                return;
-            }
-        }
-
-        System.out.println("\n  *** VICTORY ***");
-        scanner.close();
-    }
-}
