@@ -54,6 +54,9 @@ This project provides a minimal JavaFX application that runs entirely within Git
 
 This project is licensed under the [MIT License](LICENSE).
 
+
+Controls: WASD or Left:⬅️, Up:⬆️, Right:➡️, Down: ⬇️
+
 ## Jobs
 
  Dorian: Maps, Items, Inventory ||
