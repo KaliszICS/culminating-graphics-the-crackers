@@ -4,14 +4,6 @@ import java.util.Random;
 import CharacterSystem.Player;
 import ItemSystem.Item;
 
-    /**
-     * Class for bread
-     * @author Dorian Goobie
-     * @param HP
-     * @param Damage
-     * @param name
-     */
-
 public class Bread extends Item {
     
     protected int HP;
@@ -38,7 +30,8 @@ public class Bread extends Item {
         return Damage;
     }
 
-    public void eatBread(int Heal, int Damage){
+    @Override
+    public void use(Player p){
             Random random = new Random();
             double moldy = 0.25;
 
@@ -57,12 +50,6 @@ public class Bread extends Item {
             p.getInventory().getItems().remove(this);
         }
         
-    /**
-     * Use the bread to attack the boss, but the boss can lose or gain health
-     * @param random
-     * @param moldy
-     */
-
     public void attackBread(int Heal, int Damage){
             Random random = new Random();
             double moldy = 0.25;
@@ -76,11 +63,7 @@ public class Bread extends Item {
                 System.out.println("The boss has lost" + Damage + "HP");
             }
         }
-    
-    /**
-     * toString methods that return the name, HP, and damage
-     */ 
-
+        
     @Override
     public String toString(){
         return this.name;
