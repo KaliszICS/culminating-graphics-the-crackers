@@ -16,7 +16,6 @@ public class MapBoss extends Interactable{
 
     @Override
     public boolean interact(GameMap map){
-        System.out.println(this.toString());
         ViewManager.openBattle(this, map);
         return true;
     }

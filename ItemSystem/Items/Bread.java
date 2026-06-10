@@ -1,14 +1,18 @@
-package ItemSystem;
+package ItemSystem.Items;
 import java.util.Random;
+
+import CharacterSystem.Player;
+import ItemSystem.Item;
 
 public class Bread extends Item {
     
     protected int HP;
     protected int Damage;
-    protected String name;
     
-    public Bread(String name){
+    public Bread(String name, int HP, int damage){
         super(name);
+        this.HP = HP;
+        this.Damage = damage;
     }
 
     public String Item(String name){
@@ -26,18 +30,24 @@ public class Bread extends Item {
         return Damage;
     }
 
-    public void eatBread(int Heal, int Damage){
+    @Override
+    public void use(Player p){
             Random random = new Random();
             double moldy = 0.25;
 
+            //hilariously uncharacteristic of bread, i will call this suspicious bread
             if (random.nextDouble() > moldy){
                 System.out.println("This bread is GOOD BREAD!");
                 System.out.println("You have gained" + HP + "HP");
+                p.heal(HP); 
             }
             if (random.nextDouble() < moldy) {
                 System.out.println("This bread is MOLDY BREAD...");
                 System.out.println("You have lost" + Damage + "HP");
+                p.takeDamage(Damage);
             }
+
+            p.getInventory().getItems().remove(this);
         }
         
     public void attackBread(int Heal, int Damage){

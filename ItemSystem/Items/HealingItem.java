@@ -1,4 +1,6 @@
-package ItemSystem;
+package ItemSystem.Items;
+
+import ItemSystem.Item;
 
 public class HealingItem extends Item {
     //private int quantity;

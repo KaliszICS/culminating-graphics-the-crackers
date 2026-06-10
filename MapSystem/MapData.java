@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import CharacterSystem.PlainsBoss;
+import ItemSystem.Item;
+import ItemSystem.Items.Bread;
+import ItemSystem.Items.GoodBread;
 import MapSystem.Interactables.Boss.MapBoss;
 import MapSystem.Interactables.Door.Door;
-import javafx.scene.control.Label;
+import MapSystem.Interactables.MagicWand.MapMagicWand;
+import MapSystem.Interactables.Chest.Chest;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,7 +21,12 @@ public class MapData {
 
     private static Interactable[] temp = new Interactable[]{
         new Door("Door", new int[]{0,5}, "a", new ImageView(new Image("/Resources/Sprites/DoorSmall.png",40,40,true,false))),
-        new MapBoss("Boss", new int[]{4,1}, new PlainsBoss(), new Label("boss")),
+        new MapBoss("Boss", new int[]{4,1}, new PlainsBoss(), new ImageView(new Image("/Resources/Sprites/greenBoss.png",40,40,true,false))),
+        new MapMagicWand("Boss", new int[]{0,0}, new ImageView(new Image("/Resources/Sprites/MagicWand.png",40,40,true,false))),
+        new Chest("Chest", new int[]{9,0}, new Item[]{
+            new Bread("Bread", 20, 10),
+            new GoodBread("Good Bread"),
+        }, new ImageView(new Image("/Resources/Sprites/Chest.png",40,40,true,false)))
     };
     public static ArrayList<Interactable> grasInteractables = new ArrayList<>(Arrays.asList(temp));
 

@@ -49,6 +49,11 @@ package CharacterSystem;
      public void heal() {
         this.currentHP += Heal;
     }
+
+     public void heal(int i) {
+        this.currentHP += i;
+    }
+
 /**
  * restores mp to the character
  * @param amount the amount of mp to restore

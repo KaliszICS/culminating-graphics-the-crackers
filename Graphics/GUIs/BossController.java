@@ -1,10 +1,10 @@
 package Graphics.GUIs;
 
-import java.beans.EventHandler;
 import java.util.ArrayList;
 
 import CharacterSystem.Boss;
 import CharacterSystem.Player;
+import Graphics.ViewManager;
 import ItemSystem.Inventory;
 import ItemSystem.Item;
 import MapSystem.GameMap;
@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 //Sadly this is going to have to be where all the battle stuff is because the battle system is wraps
 
@@ -78,6 +79,7 @@ public class BossController {
 
     @FXML
     public void defend(ActionEvent e){
+        //funnily enough, this is never worth it, 
         this.xDamage = 0.2;
         passTurn();
     }
@@ -97,8 +99,10 @@ public class BossController {
         String temp = invSearch.getText().toLowerCase();
 
         for(Item i : inv.getItems()){
-            if(i.toString().equals(temp)){
+            if(i.toString().toLowerCase().equals(temp)){
                 i.use(player);
+                update();
+                return;
             }
         }
     }
@@ -120,6 +124,8 @@ public class BossController {
         this.boss = this.mapBoss.getBoss();
         this.inv = player.getInventory();
         this.itemList = new ArrayList<>();
+        ImageView temp = (ImageView) mapBoss.getArt();
+        bossSprite.setImage(temp.getImage());
 
         update();
     }
@@ -155,6 +161,10 @@ public class BossController {
 
         xDamage = 1;
         update();
+
+        if(player.getCurrentHP() <= 0){
+            ViewManager.getScene().setRoot(new StackPane(new Label("Dead (uh oh, not enough budget for a real game over screen)")));
+        }
     }
 
 }
